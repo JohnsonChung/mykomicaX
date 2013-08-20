@@ -1,0 +1,41 @@
+// utility 
+.border( @color:red ) {
+	border: 1px solid @color;
+}
+.posLT { left: 0; top: 0;}
+.posRT { right: 0; top: 0;}
+.posLB { left: 0; bottom: 0;}
+.posRB { right: 0; bottom: 0;}
+
+.tranEaseOut(...) {
+	@props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
+	.transition-property(@props);
+	.transition(~"0.3s ease-out");
+}
+.user-select-none {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: moz-none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+.clearfix {
+	&:after { content: ""; display: table; clear: both; }
+}
+
+// List <li>
+// ------------------------------------
+.inline-group {
+	li {
+		display: inline-block;
+	}
+}

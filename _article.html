@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/combine.less" type="text/less">         
+        <link rel="stylesheet" href="css/banch.less" type="text/less">      
+
+        <script src="js/vendor/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="js/libs/less-1.4.1.min.js"></script>
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+
+        <script id="handler" src="js/handler-reader.js"></script>
+        <script id="handler" src="js/plugins.js"></script>
+    </head>
+    <body>        
+        <script id="template" type="text/x-handlebars-template">
+            <div class="messages">                    
+                {{#each comments}}
+                <div class="messageCon">
+                    <div class="message-control"> 
+                        <ul class="control-group">
+                            <li class="check"><span class="glyphicon-stop glyphicon"></span></li>
+                            <li class="lineblock"></li>
+                            <li class="flag"><span class="glyphicon-flag glyphicon"></span></li>
+                            <li class="edit"><span class="glyphicon-pencil glyphicon"></span></li>
+                        </ul>
+                    </div>
+                    <div class="manage-info"> 
+                        <ul class="manage-group">
+                            <li>
+                                <span class="ip">{{IP}}</span>
+                            </li>
+                            <li><span class="glyphicon-magnet glyphicon"></span></li>
+                            <li><span class="glyphicon-filter glyphicon"></span></li>
+                        </ul>
+                    </div>
+                    <div class="message">
+                        <div class="message-head">  
+                            <ul class="infoCon">
+                                <li class="id"><span>{{ID}} </span></li>
+                                {{#if NAME}}
+                                <li class="name"><span>{{NAME}}</span></li>
+                                {{/if}}
+                                <li class="posttime">{{POSTTIME}}</li>
+                            </ul>                      
+                        </div>
+                        <div class="message-body">                        
+                            {{#if imgSize}}
+                            <div class="attachCon">
+                                <div class="attach">
+                                    <a class="attach-link" href="#"><img alt="" src="http://placehold.it/{{imgSize}}/0eafff/ffffff.png" /></a>
+                                    <div class="attach-control">                                    
+                                    </div>
+                                    <div class="attach-info">                                    
+                                        <span class="type">{{imgTYPE}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
+                            <p class="content">
+                                {{{CONTENT}}}
+                            </p>
+                        </div>
+                        <div class="message-footer">
+                            <div class="rating"></div>
+                            <ul class="infoCon">
+                                <li class="postnumber">{{POSTNUMBER}}</li>
+                            </ul>     
+                        </div>
+                    </div>            
+                </div>
+                {{/each}}
+            </div>
+        </script>  
+
+        <div class="box"></div>
+    </body>
+</html>

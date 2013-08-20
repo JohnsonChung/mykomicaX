@@ -1,0 +1,277 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+
+// utility 
+.border( @color:red ) {
+	border: 1px solid @color;
+}
+.posLT { left: 0; top: 0;}
+.posRT { right: 0; top: 0;}
+.posLB { left: 0; bottom: 0;}
+.posRB { right: 0; bottom: 0;}
+
+.tranEaseOut(...) {
+	@props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
+	.transition-property(@props);
+	.transition(~"0.3s ease-out");
+}
+.user-select-none {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: moz-none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.clearfix {
+	&:after { content: ""; display: table; clear: both; }
+}
+
+.messages {
+	padding-right: 40px;
+	
+	.messageCon {
+		display: table;
+		position: relative;		
+		padding-left: 40px;
+		margin: 6px 0;		
+		.transition(~'0.1s linear');
+		.transition-property( margin, border, background-color);
+		
+		// 附加的 class 描述這個 messageCon 的狀態 應該可以分類到獨立的樹狀方便處理
+		&.highlight {
+			.message {				
+				background-color: @formColor;
+			}
+			&:before {
+				position: absolute;
+				left: 32px;
+				content: '';
+				height: 100%;
+				border-left: 5px solid @blue;
+			}
+		}
+		&.selected {
+			border: 4px solid @blue;
+			background-color: @blue;
+			padding-left: 45px;
+			margin: 2px;
+
+			.message-control {
+				width: 45px;
+				
+				li {	
+					visibility: visible !important;
+
+					&:hover {
+						.glyphicon {
+							color: @white;
+						}
+					}
+					&.check {
+						font-size: 16px !important;
+					}
+					.glyphicon {
+						color: fade( @white, 80% );
+					}
+				}				
+			}
+			.manage-info {
+				display: block;
+			}
+		}
+		&:hover {
+			// hover messageCon
+			ul.infoCon {
+				.id, .posttime {					
+					color: @fontColor;
+				}
+			}
+		}
+		.message {		
+			position: relative;
+		    display: table;  
+		    padding: 5px 0 5px 0;
+		    min-height: 60px;
+	    	background-color: @messageColor;
+
+			.message-head {		
+			}
+			.message-body {
+			}
+			.message-footer {
+				position: absolute; 
+				right: 0; bottom: 0;
+			}
+		}	
+		.message-control {
+			position: absolute;
+			left: 0; top: 0;
+			width: 40px;
+			height: 100%;
+			text-align: center;
+			color: @messageColor;
+			.user-select-none;
+
+			&:hover {
+				.check {
+					font-size: 16px !important;
+				}
+			}
+			ul.control-group {
+				text-align: center;
+
+				li {				
+					visibility: hidden;
+					display: inline-block;
+					padding: 0px 0;
+					width: 100%;
+					vertical-align: middle;
+
+					.glyphicon {
+					}
+				}
+				// 控制選項的部分 
+				// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
+				li.check {
+					// 讓第一個 check box 不要隱藏
+					visibility: visible;
+					padding: 3px 0;
+					font-size: 10px;
+					.transition(~"font-size 0.1s linear");
+
+					&:hover {
+						font-size: 16px;
+					}
+				}
+				li.lineblock {
+					// 分隔線 可能會重複使用
+					border-top: 1px solid fade( white , 50%);
+					width: 50%;
+					padding: 0;
+					margin: 3px 0;
+					font-size: 0;
+					line-height: 0;
+					vertical-align: top;
+				}
+			}
+		}
+		// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
+		.manage-info {
+			display: none;
+			line-height: 22px;
+			color: @white;
+
+			.manage-group {	
+				display: block;
+				padding: 0 10px;	
+				.clearfix;
+
+				li {
+					display: inline;
+
+					span {
+						display: inline;
+						text-align: center;
+						padding: 0 20px;
+						vertical-align: bottom;
+						&:hover {
+							background-color: fade( @white, 50% );
+						}
+					}
+				}
+			}
+		}
+		ul.infoCon {
+		    font-family: arial, "新細明體", Serif, Georgia;
+		    margin: 3px 5px 0 20px;
+		    color: fade( @fontColor, 40%);
+			.transition(~"0.1s linear");
+			.transition-property( color, opacity);
+			.clearfix;
+
+			li {
+				display: inline-block;
+				padding-right: 8px;
+			}
+		    .title {
+				font-weight: bold;
+				color: @titleColor;
+		    }
+		    .name {
+				font-weight: bold;
+				color: @nameColor;
+		    }
+		    .id {			
+		    	
+		    	&:first-letter {
+		    		font-size: 22px;
+		    		font-weight: bold;
+		    	}		    	
+		    }
+		    .posttime {    
+	    		font-size: @fontSizeSmall;
+		    }
+		    .postnumber {
+				position: relative;
+				right: 0;
+				padding-right: 0;
+		   		color: fade( @fontColor, 20%);
+	    		font-size: @fontSizeMini;
+		    }
+		}
+		.content {		
+			margin: 0;			
+			padding: 10px 20px 15px 20px;
+			min-width: 280px;
+			line-height: 22px;
+			word-break: break-all;
+
+			// 內文特殊標註
+			.quote {
+				color: @quoteColor;
+				padding-right: 5px;
+			}
+		}
+		.attachCon {
+
+			&:hover {
+				.attach-control {
+				  .opacity(1); 
+				}
+			}			
+			&:before {
+				// 修正圖片造成寬度不夠的問題 這個方法很有趣 利用了css 的bug? 研究清楚會很有幫助
+				float: right;
+				content: "";
+				margin: 0;
+				padding: 0;
+				width: 245px;
+				line-height: 0;
+				font-size: 0;
+			}
+			.attach {
+				position: relative;
+				float: left;
+				margin: 10px 20px 20px 20px;  
+			}
+			.attach-control {
+			}
+			.attach-info {
+				.type {
+					position: absolute;
+					left: 0; bottom: -10px;
+					font-size: @fontSizeMini;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,219 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+
+// utility
+
+
+// basicImage
+// ================================
+// .image.image1-4 > ( .image-main > .img1 ) + 
+//					 ( .image-minor > .img2-4 )
+.image {
+	position: relative;
+	float: left;
+	clear: left;
+	.clearfix;
+	.border(@grayLight);
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: @white;
+}
+.image1 {
+
+}
+.image2 {
+
+}
+.image3 {
+
+}
+.image4 {
+
+}
+// <img> 1~4 圖片
+.img1, .img2, .img3, .img4 {
+	overflow: hidden;
+}
+div.image-main {
+	float: left;
+	// 修正 img 多出的空間
+	font-size: 0;
+	line-height: 0;
+}
+ul.image-minor {
+	float: left;		
+
+	li {
+		display: block;
+		font-size: 0;
+		line-height: 0;
+	}
+}
+
+
+// menu-bar
+.menu-bar {	
+	width: 100%;
+	background-color: @blue;
+	.user-select-none;
+
+	ul.control-group {
+		padding: 0 10px;
+
+		li {
+			padding: 10px 0; 			
+			color: @white;
+			font-size: 12px;
+		}
+	}
+}
+
+// Image Size
+// ================================
+.imageCon {
+	display: table;
+}
+.image {
+	// 圖片架構倍率
+	@height: 330px * 0.8;
+	@width: 330px * 0.8;
+	img {
+		width: 100%;
+		height: auto;
+		vertical-align: middle;
+		text-align: center;
+	}
+	.img1{
+		.size(@width, @height);
+	}
+
+	&.image1 {	
+	}
+	&.image2 {
+		.img1{
+			.size(@width * 0.75, @height);
+		}
+		ul.image-minor {
+			.img2 {
+				.size(@width * 0.75, @height);
+			}
+		}
+	}
+	&.image3 {
+		ul.image-minor {
+			.img2, .img3 {				
+				.size(@width / 2, @height / 2);
+			}
+		}
+	}
+	&.image4 {
+		ul.image-minor {
+			.img2, .img3, .img4 {				
+				.size(@width / 2, @height / 3);
+			}
+		}
+	}
+}
+
+// Image
+// ================================
+.image {
+	&.selected {
+		background-color: @blue;
+		.transition(~'0.1s linear');
+		.transition-property( margin, border, background-color);
+
+		.image-control {
+			background-color: @blue;
+
+			li {	
+				visibility: visible !important;
+
+				&:hover {
+					.glyphicon {
+						color: @white;
+					}
+				}
+				&.check {
+					font-size: 16px !important;
+					padding: 4px 5px;
+					font-size: 16px;
+					line-height: 16px;
+					background: none;
+					border-radius: 0;			
+					border: 0;
+					vertical-align: middle;
+					text-align: center;
+					.box-shadow(~"none");
+			
+				}
+				.glyphicon {
+					color: fade( @white, 80% );
+				}
+			}				
+		}
+	}
+}
+
+.image-control {
+	position: absolute;
+	left: 0px; top: 5px; right: 0;
+	margin: auto 5px;
+	padding: 10px;
+	height: 25px;
+	color: @white;
+	.user-select-none;	
+
+	&:hover {
+		cursor: pointer;
+	}
+	ul.control-group {
+
+		li {				
+			visibility: hidden;
+			padding: 0px 10px;
+			vertical-align: middle;
+
+			.glyphicon {
+			}
+		}
+		// 控制選項的部分 
+		li.check {
+			// 讓第一個 check box 不要隱藏
+			display: inline-block;
+			visibility: visible;
+			padding: 4px 5px;
+			font-size: 16px;
+			line-height: 16px;
+			background-color: @grayLight;
+			border-radius: 20px;			
+			border: 3px solid @white;
+			vertical-align: middle;
+			text-align: center;
+			.transition(~"font-size 0.1s linear");
+			.box-shadow(~"0 0 3px rgba(255,255,255,1)");
+
+			&:after {
+				display: inline-block;
+			}
+		}
+		li.lineblock-vertical {
+			// 分隔線 可能會重複使用
+			border-left: 1px solid fade( white , 50%);
+			height: 30px;
+			padding: 0;
+			margin: 0 10px;
+			font-size: 0;
+			vertical-align: top;
+		}
+	}
+}

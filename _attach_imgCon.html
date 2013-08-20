@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/combine.less" type="text/less">
+        <link rel="stylesheet" href="css/image.less" type="text/less">
+
+
+        <script src="js/vendor/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="js/libs/less-1.4.1.min.js"></script>
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+
+        <script id="handler" src="js/handler.js"></script>
+        <script src="js/plugins.js"></script>
+    </head>
+    <body>
+
+        <div class="imageCon">
+            <div class="menu-bar">
+                <ul class="control-group inline-group">
+                    <li>已上傳 <span>6</span> 張圖片</li>
+                    <li class="check"><span class="glyphicon-ok glyphicon"></span></li>
+                    <li class="lineblock-vertical"></li>
+                    <li class="edit pull-right"><span>取消 </span><span class="glyphicon-remove glyphicon"></span></li>
+                </ul>
+            </div>
+            <div class="image image2 image-vertical">
+            <div class="image-main img1">
+                <img alt="" src="img/album/02.jpg"/>        
+            </div>
+            <ul class="image-minor">
+                <li class="img2">
+                    <img alt="" src="img/album/03.jpg"/>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- 單圖 -->        
+        <div class="image image1">     
+            <div class="image-control"> 
+                <ul class="control-group inline-group">
+                    <li class="check"><span class="glyphicon-ok glyphicon"></span></li>
+                    <li class="lineblock-vertical"></li>
+                    <li class="flag"><span class="glyphicon-flag glyphicon"></span></li>
+                    <li class="edit"><span class="glyphicon-pencil glyphicon"></span></li>
+                </ul>
+            </div>    
+            <div class="image-main img1">
+                <img alt="" src="img/album/01.jpg"/>
+            </div>
+        </div>
+        <!-- 雙圖 -->        
+        <div class="image image2 image-vertical">
+            <div class="image-main img1">
+                <img alt="" src="img/album/02.jpg"/>        
+            </div>
+            <ul class="image-minor">
+                <li class="img2">
+                    <img alt="" src="img/album/03.jpg"/>
+                </li>
+            </ul>
+        </div>
+        <!-- 三圖 -->        
+        <div class="image image3">
+            <div class="image-main img1">
+                <img alt="" src="img/album/04.jpg"/>       
+            </div>
+            <ul class="image-minor">
+                <li class="img2">
+                    <img alt="" src="img/album/05.jpg"/> 
+                </li>
+                <li class="img3">
+                    <img alt="" src="img/album/06.jpg"/>
+                </li>
+            </ul>
+        </div>
+        <!-- 四圖 -->        
+        <div class="image image4 image-horizontal">            
+            <div class="image-main img1">
+                <img alt="" src="img/album/07.jpg"/>
+            </div>
+            <ul class="image-minor">
+                <li class="img2">
+                    <img alt="" src="img/album/08.jpg"/>
+                </li>
+                <li class="img3">
+                    <img alt="" src="img/album/09.jpg"/>
+                </li>
+                <li class="img4">
+                    <img alt="" src="img/album/10.jpg"/>
+                </li>
+            </ul>
+        </div>
+
+        <script id="entry-template" type="text/x-handlebars-template">
+        </script>
+        <div class="box">
+            <!-- result container -->
+        </div>
+    </body>
+</html>

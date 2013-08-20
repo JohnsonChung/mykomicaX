@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">        
+        <link rel="stylesheet" href="css/combine.less" type="text/less">
+
+        <script src="js/vendor/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="js/libs/less-1.4.1.min.js"></script>
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>        
+
+        <script id="handler"src="js/handler.js"></script>
+    </head>
+    <body>
+        <!-- div.replyFormCon>.replyForm>(.contentFormCon>textarea.contentForm)+(.attachFormCon>.attachForm)+(.attachTypeCon>ul.attachType>li*5>span.glyphicon.glyphicon-picture+{圖片}) -->
+
+        <div class="replyFormCon">
+            <div class="replyForm">
+
+                <div class="contentFormCon"><textarea name="" id="" class="contentForm" placeholder="請在這裡輸入... 點兩下會翻面"></textarea></div>
+
+                <div class="attachFormCon">
+                    <div class="attachForm"></div>
+                </div>
+
+                <div class="attachTypeCon">
+                    <ul class="attachType">
+                        <li><span class="glyphicon glyphicon-picture"></span>圖片</li><!-- 
+                     --><li><span class="glyphicon glyphicon-plane"></span>圖片</li><!-- 
+                     --><li><span class="glyphicon glyphicon-shopping-cart"></span>圖片</li><!-- 
+                     --><li><span class="glyphicon glyphicon-usd"></span>圖片</li><!-- 
+                     --><li><span class="glyphicon glyphicon-plus"></span>圖片</li>
+                    </ul>
+                </div>
+
+                <div class="formConrtrolCon">
+                    <a class="btn btn-success btn-submit"> Submit </a>
+                </div>
+                
+            </div>
+        </div>
+        <script id="entry-template" type="text/x-handlebars-template">
+           
+        </script>
+        <div class="box">
+            <!-- result container -->
+        </div>
+    </body>
+</html>

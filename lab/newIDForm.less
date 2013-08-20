@@ -1,0 +1,70 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+
+// Form
+&{
+	@lh: 30px;
+
+	.testCon, .testCon2, .testCon3 {
+		position: relative;
+		display: block;
+		line-height: @lh;
+		margin: 0 auto;
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: @lh;
+		.size(@lh * 3, @lh * 3);
+		background-color: @fontColor;
+		color: white;
+	}
+	li {
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		line-height: @lh;
+		.size(@lh,@lh);
+	}
+	.a,.b,.c,.d,.e,.f,.g,.h,.i{
+		position: absolute;
+	}
+
+	.a {
+		left: 0; top: 0;
+	}
+	.b {
+		left: @lh; top: 0;
+	}
+	.c {
+		right: 0; top: 0;
+	}
+	.d {		
+		left: 0; top: @lh;
+	}
+	.e {
+		position: relative;
+		line-height: @lh * 3;
+		margin: 0 auto;		
+		font-size: @lh * 1.8;
+	}
+	.f {
+		right: 0; top: @lh;
+	}
+	.g {
+		left: 0; bottom: 0;
+	} 
+	.h {
+		left: @lh; bottom: 0;
+	}
+	.i {		
+		right: 0; bottom: 0;
+	}
+}
