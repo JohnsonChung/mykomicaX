@@ -4,15 +4,19 @@
 // COLOR
 // -------------------------
 
-// Grays
+// Basic colors
 // -------------------------
 @black:                 #000;
-@grayDarker:            #222;
-@grayDark:              #333;
-@gray:                  #555;
-@grayLight:             #999;
-@grayLighter:           #eee;
 @white:                 #fff;
+
+
+// Grays
+// -------------------------
+@gray-darker:            lighten(#000, 13.5%); // #222
+@gray-dark:              lighten(#000, 20%);   // #333
+@gray:                   lighten(#000, 33.5%); // #555
+@gray-light:             lighten(#000, 60%);   // #999
+@gray-lighter:           lighten(#000, 93.5%); // #eee
 
 
 // Accent colors
@@ -29,7 +33,7 @@
 
 // Scaffolding
 // -------------------------
-@textColor:             @grayDark;
+@textColor:             @gray-dark;
 @anchorColor:           @blue;
 
 
@@ -61,4 +65,4 @@
 @btnDangerBackgroundHighlight:      #bd362f;
 
 @btnInverseBackground:              #444;
-@btnInverseBackgroundHighlight:     @grayDarker;
+@btnInverseBackgroundHighlight:     @gray-darker;

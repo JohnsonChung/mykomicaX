@@ -24,6 +24,7 @@
 // Place any jQuery/helper plugins in here.
 !function ($){
 
+    // Message 勾選 切換 .selected 狀態
     $(document).ready( function() {
         $(".message-control").click( function(){
             $(this).find('.check').children('span').toggleClass('glyphicon-stop glyphicon-check');
@@ -39,7 +40,6 @@
     });    
 
     // image 
-
     $(document).click( function() { 
         // 快取 .image-horizontal .image-vertical .image
         var $imgH = $('.image-horizontal');
@@ -61,4 +61,29 @@
         });
     });
 
+    // 捲動開關
+    function scrollStartTrigger() {
+        positionTop = $(document).scrollTop();
+        var power = false;
+        if ( positionTop > 45 && power === false) {
+            $('#postFormCon').addClass('right');
+            power = true;
+        } else {
+            $('#postFormCon').removeClass('right');
+            power = false;
+        }
+    };
+    $(window).scroll( function(){
+        scrollStartTrigger();
+    });
+    
+
 }(window.jQuery);
+
+// Content Editable
+document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
+    e.preventDefault();
+    var text = e.clipboardData.getData("text");
+    document.execCommand("insertText", false, text);
+});
+

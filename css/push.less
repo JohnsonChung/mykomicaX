@@ -1,0 +1,74 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+@import "forms.less";
+@import "buttons.less";
+@import "menubar.less";
+
+// utility
+
+// basic Push
+// ================================
+.pushCon {
+	display: table;
+	padding: 10px;
+	background-color: @white;
+}
+.push {
+	padding: 2px 0;
+
+	.face, 
+	.text,
+	.pId,
+	.time,
+	// push control-group
+	.pCg {
+		display: inline-block;
+	}
+	.face {		
+		font-family: "ヒラギノ角ゴ Pro W3", "メイリオ", "新細明體", arial , sans-serif;
+		font-weight: bold;
+	}
+	.face:after {
+		content: ' <';
+	}
+	.text {
+		padding: 0 10px;
+	}
+	.pId, .time {
+		color: @gray-light;
+		font-size: 13px;
+	}
+}
+// basic State
+// ================================
+.push {
+	&.selected {
+		background-color: @blue;
+		color: @white;
+
+		.pId, .time {
+			color: @gray-lighter;
+		}
+	}
+	&.highlight {
+		position: relative;
+		background-color: @formColor;
+
+		&:before {
+			position: absolute;
+			left: -8px; top: 0;
+			content:'';
+			height: 100%;		
+			border-left: 5px solid @blue;
+		}
+	}
+}

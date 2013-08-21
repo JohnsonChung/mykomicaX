@@ -1,0 +1,37 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+
+// utility
+
+
+// basic Menu-bar
+// ================================// menu-bar
+.menu-bar {	
+	width: 100%;
+	background-color: @messageColor;
+	.user-select-none;
+
+	ul.control-group {
+		padding: 0 10px;
+		.clearfix;
+
+		li {
+			display: inline-block;
+			padding: 10px 0;
+			font-size: 12px;
+		}
+	}
+}
+.menu-bar-default {
+	background-color: @blue;
+	color: @white;
+}

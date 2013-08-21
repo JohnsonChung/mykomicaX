@@ -11,6 +11,7 @@
 @import "color.less";
 @import "forms.less";
 @import "buttons.less";
+@import "menubar.less";
 
 // utility
 
@@ -38,7 +39,7 @@
 	
 	background-color: @white;
 	outline: 0;
-	.border(@grayLight);
+	.border(@gray-light);
 
 	color: @fontColor;
 	font-size: 16px;
@@ -57,11 +58,32 @@
 // PostForm
 // ================================
 #postFormCon {
-	@lineheight: 22px;
-	// 讓寬度階梯化
+	// 配合js 往下捲動後會靠右，可以邊看文邊回應。
+	&.right {
+		position: fixed;
+		width: 100%;
+		right: 0; top: 0;
+
+		#postForm {
+			position: absolute;
+			right: 0;
+		}
+		.menu-bar {
+			display: block;
+			width: 100%;
+		}
+	}	
+	// 收折成一個小小的發文框
 	&.close {
 
 	}
+}
+#postForm {
+	@lineheight: 22px;
+	.transition(~"0.5s linear");
+	.transition-property( position, float );
+
+	// 讓寬度階梯化
 	#formTitleCon,
 	#contentFormCon,
 	#attachTypeCon,
@@ -127,7 +149,7 @@
 			width: 0;
 			border-width: 0px 9px 9px 9px;
 			border-style: solid;
-			border-color: @grayLight transparent;              
+			border-color: @gray-light transparent;              
 		}
 		&:before {
 			content: "";
@@ -146,7 +168,7 @@
 
 		.attach-group {
 			height: 300px;
-			background-color: @grayLight;
+			background-color: @gray-light;
 			.formWidth(3);
 		}
 		li {
