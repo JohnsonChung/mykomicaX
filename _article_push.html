@@ -25,6 +25,15 @@
 
     </head>
     <body>
+        <!-- NAVI -->
+        <div id="NAVIGATION">
+            <ul>
+                <li>.push 有兩個狀態 .selected(管理) .highlight(強調 點擊id會強調那個id所有的發文)</li>
+                <li>目前是用 webkit-scrollbar </li>
+            </ul>
+        </div>
+        <!-- NAVI -->
+        
         <script id="template" type="text/x-handlebars-template">
         <div class="pushCon">
             <div class="menu-bar">
@@ -42,11 +51,15 @@
                             <span class="glyphicon glyphicon-user"></span>
                             192.168.0.1
                         </li>
+                        <li class="lineblock-vertical"></li>
+                        <li>
+                            封鎖
+                        </li>
                         <li>
                             <span class="glyphicon glyphicon-pencil"></span>
                         </li>
                         <li>
-                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="glyphicon glyphicon-trash"></span>
                         </li>
                     </ul>
                     <div class="container">

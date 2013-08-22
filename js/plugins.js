@@ -41,8 +41,14 @@
 
     // push toggle Class
     $(document).ready( function() {
-        $(".push").click( function(){
-            $(this).toggleClass('selected');
+        $(".push").click( function(){            
+            $(this).removeClass('highlight').toggleClass('selected');
+        });
+    });
+    $(document).ready( function() {
+        $(".push").find('.pId').click( function(e){
+            e.stopPropagation();
+            $(this).parent().parent().removeClass('selected').toggleClass('highlight');
         });
     });
 

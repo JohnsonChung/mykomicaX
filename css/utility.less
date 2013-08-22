@@ -22,10 +22,10 @@
 }
 
 .pull-right {
-  float: right;
+  float: right !important;
 }
 .pull-left {
-  float: left;
+  float: left !important;
 }
 
 .clearfix {
@@ -35,8 +35,20 @@
 // List <li>
 // ------------------------------------
 .inline-group {
+	.clearfix;
 	li {
-		display: inline-block;
-		padding-right: 3px;
+		float: left;
+		padding: 0 5px;
+		margin-right: 5px;
 	}
+}
+
+li.lineblock-vertical {
+	// 分隔線 可能會重複使用
+	border-left: 1px solid fade( white , 50%);
+	height: 20px;
+	padding: 0;
+	margin: 0 10px;
+	font-size: 0;
+	vertical-align: top;
 }
