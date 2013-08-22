@@ -10,71 +10,56 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">        
         <link rel="stylesheet" href="css/combine.less" type="text/less">
         <link rel="stylesheet" href="css/push.less" type="text/less">
 
         <script src="js/vendor/jquery-1.9.1.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <script src="js/libs/less-1.4.1.min.js"></script>
-        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
-        <script src="js/vendor/bootstrap.min.js"></script>        
+        <script src="js/libs/less-1.4.1.min.js"></script>   
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>  
 
-        <script id="handler"src="js/handler.js"></script>
+        <script id="handler" src="js/handler-reader.js"></script>
+        <script src="js/plugins.js"></script>
+
 
     </head>
     <body>
+        <script id="template" type="text/x-handlebars-template">
         <div class="pushCon">
-            <div class="push">
-                <div class="face">(・∀・)</div>
-                <div class="text">請問寫個代購網站能不能賺錢呀</div>
-                <div class="pId">sdaAq1s3</div>
-                <div class="time">剛剛</div>
-                <ul class="pCg control-group inline-group">
-                    <li>
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </li>
-                    <li>
-                        <span class="glyphicon glyphicon-remove"></span>
+            <div class="menu-bar">
+                <ul class="control-group inline-group">
+                    <li>65 篇推文</li>
+                    <li class="pull-right"><span class="glyphicon glyphicon-remove"></span>   取消選取
                     </li>
                 </ul>
             </div>
-            <div class="push highlight">
-                <div class="face">(ﾟДﾟ )</div>
-                <div class="text">不是喔，而是我一個認識的人</div>
-                <div class="pId">ASD21aw1</div>
-                <div class="time">昨天</div>
-                <ul class="pCg control-group inline-group">
-                    <li>
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </li>
-                    <li>
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="push selected">
-                <div class="face">（n;‘Д‘))η</div>
-                <div class="text">小魚＝賣日品廚＝螢幕廚＝初春包作者</div>
-                <div class="pId">sAdq123a</div>
-                <div class="time">三天前</div>
-                <ul class="pCg control-group inline-group">
-                    <li>
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </li>
-                    <li>
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </li>
-                </ul>
-            </div>
+            <div class="pushes">
+            {{#each comments}}                
+                <div class="push">
+                    <ul class="pCg control-group inline-group">
+                        <li class="pull-left">
+                            <span class="glyphicon glyphicon-user"></span>
+                            192.168.0.1
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </li>
+                    </ul>
+                    <div class="container">
+                        <div class="face">(・∀・)</div>
+                        <div class="text">{{{CONTENT}}}</div>
+                        <div class="time">剛剛</div>
+                        <div class="pId">{{ID}}</div>
+                    </div>
+                </div>
+            {{/each}}
+            </div> 
         </div>
-        <script id="entry-template" type="text/x-handlebars-template">
-           
         </script>
-        <div class="box">
-            <!-- result container -->
-        </div>
+        <div class="box"></div>
     </body>
 </html>

@@ -37,7 +37,14 @@
         $(".quote").click( function() {
             $(".messages .messageCon:first-child").toggleClass('highlight');
         })        
-    });    
+    });
+
+    // push toggle Class
+    $(document).ready( function() {
+        $(".push").click( function(){
+            $(this).toggleClass('selected');
+        });
+    });
 
     // image 
     $(document).click( function() { 

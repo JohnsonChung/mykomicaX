@@ -19,11 +19,22 @@
 // ================================
 .pushCon {
 	display: table;
-	padding: 10px;
 	background-color: @white;
+	margin: 0 auto;		
+}
+.pushes {
+	max-height: 500px;
+	overflow-y: scroll;
 }
 .push {
-	padding: 2px 0;
+	padding: 0px 5px;
+	border: 1px solid @gray-lighter;
+	border-width: 1px 0;
+	margin: 0 10px;
+	max-width: 500px;
+	line-height: 25px;
+	font-size: @fontSizeMini;
+	.clearfix;
 
 	.face, 
 	.text,
@@ -31,32 +42,50 @@
 	.time,
 	// push control-group
 	.pCg {
-		display: inline-block;
 	}
 	.face {		
+		float: left;
 		font-family: "ヒラギノ角ゴ Pro W3", "メイリオ", "新細明體", arial , sans-serif;
 		font-weight: bold;
 	}
 	.face:after {
 		content: ' <';
+		margin-right: 10px;
 	}
 	.text {
-		padding: 0 10px;
+		padding-right: 4px;
+	}
+	.time {		
+		float: right;
 	}
 	.pId, .time {
+		padding: 0 5px;
 		color: @gray-light;
 		font-size: 13px;
+	}
+	.pId {
+		cursor: pointer;
+		&:hover{ text-decoration: underline; color: @blue;}
+	}
+	.pCg {		
+		display: none;
+		text-align: right;
+		color: @gray-light;		
 	}
 }
 // basic State
 // ================================
 .push {
 	&.selected {
-		background-color: @blue;
-		color: @white;
+		margin-bottom: 2px;
+		padding: 0px 0px;
+		border: solid @blue;
+		border-width: 0 5px 5px 5px;
+		.pCg {
+			display: block;
+			background-color: @blue;
+			color: @white;	
 
-		.pId, .time {
-			color: @gray-lighter;
 		}
 	}
 	&.highlight {
@@ -69,6 +98,31 @@
 			content:'';
 			height: 100%;		
 			border-left: 5px solid @blue;
+		}
+	}
+}
+
+
+// webkit scroll bar
+
+.pushes {
+
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: @white;
+		.transition(~"all 0.3s ease-in");
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: @gray-light;
+	}
+	&:hover {
+		&::-webkit-scrollbar-track {
+			background-color: @gray-lighter;
 		}
 	}
 }
