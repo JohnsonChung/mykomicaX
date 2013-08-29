@@ -24,8 +24,10 @@
 // Place any jQuery/helper plugins in here.
 !function ($){
 
-    // Message 勾選 切換 .selected 狀態
+
     $(document).ready( function() {
+        
+        // Message 勾選 切換 .selected 狀態
         $(".message-control").click( function(){
             $(this).find('.check').children('span').toggleClass('glyphicon-stop glyphicon-check');
             $(this).parent().toggleClass('selected');
@@ -34,9 +36,33 @@
             $(this).parent().toggleClass('selected');
         });
 
+        // komica 引用的 >>No.12321323 點擊高亮目標
         $(".quote").click( function() {
             $(".messages .messageCon:first-child").toggleClass('highlight');
-        })        
+        }) 
+
+        // manage btn 所以的 .btn-manage 都可以來摺疊 該 Con 的 menu-bar
+        $('.btn-manage').bind( "click" ,  function() {
+            $(this).toggleClass('active');
+            $(this).closest('div[class$="Con"]').children('.menu-bar').slideToggle('fast');
+        });
+
+        // vote        
+        $('.option').bind( "click" ,  function() {
+            // .loading-cover 讀取畫面
+            var $cover = $(this).closest('div[class$="Con"]').children('.loading-cover');
+
+            // toggle .vote-result
+            var $vote = $(this).closest('.vote');
+            
+            setTimeout( function(){
+                $vote.toggleClass('vote-result');
+            }, 2000);                   
+
+            $cover.fadeIn();     
+            $cover.delay(2000).fadeOut();
+        });
+
     });
 
     // push toggle Class
@@ -51,6 +77,7 @@
             $(this).parent().parent().removeClass('selected').toggleClass('highlight');
         });
     });
+
 
     // image 
     $(document).click( function() { 

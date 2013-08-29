@@ -69,7 +69,7 @@
 @btn-info-bg:                    @brand-info;
 @btn-info-border:                @btn-info-bg;
 
-@btn-hover-color:                @btn-default-color;
+@btn-hover-color:                @blue;
 
 // Links
 // -------------------------
@@ -80,9 +80,10 @@
 // Components
 // -------------------------
 // Based on 14px font-size and 1.428 line-height (~20px to start)
+// 將padding 垂直水平分別設定
 
-@padding-base-vertical:          8px;
-@padding-base-horizontal:        12px;
+@padding-base-vertical:          2px;
+@padding-base-horizontal:        8px;
 
 @padding-large-vertical:         14px;
 @padding-large-horizontal:       16px;
@@ -90,7 +91,7 @@
 @padding-small-vertical:         5px;
 @padding-small-horizontal:       10px;
 
-@border-radius-base:             4px;
+@border-radius-base:             3px;
 @border-radius-large:            6px;
 @border-radius-small:            2px;
 
@@ -125,6 +126,7 @@
   &.active {
     background-color: darken(@background, 5%);
         border-color: darken(@border, 10%);
+               color: @color;
   }
 
   &.disabled,
@@ -213,6 +215,17 @@
 // Info appears as blue-green
 .btn-info {
   .btn-pseudo-states(@btn-info-color, @btn-info-bg, @btn-info-border);
+}
+// komica Custom State @color, @background, @border
+.btn-manage {
+  .btn-pseudo-states(@fontColor, @white , @gray-lighter);
+}
+.btn-menu {
+  padding: 5px 3px;
+  margin: -5px auto;
+  font-size: @font-size-small;
+  line-height: 1.5; // ensure proper height of button next to small input
+  border-radius: 0;  
 }
 
 

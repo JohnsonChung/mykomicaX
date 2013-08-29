@@ -1,0 +1,143 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+@import "forms.less";
+@import "buttons.less";
+@import "menubar.less";
+@import "type.less";
+
+// utility
+
+// basic Vote
+// ================================
+.voteCon {
+	position: relative;
+	display: table;	
+	margin-bottom: 10px;
+	
+	.vote {
+		padding: 15px;
+		padding-bottom: 5px;
+		background-color: @white; 
+		.clearfix;
+
+		.vote-title {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.vote-pool {
+			ul.options {
+				width: 450px;
+
+				li {
+					margin-bottom: 5px;
+				}
+				.option {
+					padding: 5px 10px;
+					margin-bottom: 5px;
+					border-left: 5px solid @fontColor;
+					cursor: pointer;
+					.transition(~"0.2s linear");
+					.transition-property(margin, padding, font-size, height);
+
+					&:hover {
+						background-color: @messageColor;
+					}
+					&:active {
+						background-color: lighten( @messageColor, 3%);
+					}
+				}
+			}
+			.progress {	
+				height: 0;
+   				overflow: hidden;
+				.opacity(0);
+				.transition(~"0.2s linear");
+				.transition-property(height, opacity);
+			}
+		}
+		.vote-info {
+			float: right;
+			font-size: @fontSizeMini;
+		}
+		.vote-control {
+			// 編輯按鈕 用來展開menu-bar
+			float: left;
+		}
+	}
+}
+
+
+.progress {	
+	position: relative;
+	background-color: @bodyColor;
+	height: 30px;
+	width: 450px;	
+	.box-shadow(~"0 0 20px rgba(0,0,0,0.1) inset");
+
+	.progress-bar {
+		background-color: @messageColor;
+		height: 100%;
+		width: 0;
+	}
+	.progress-info {
+		position: absolute;
+		right: 10px;
+		line-height: 20px;
+		padding: 5px 0;
+		font-size: @fontSizeMini;
+	}
+}
+
+// State
+// ================================
+.vote { 
+	&.vote-result {
+
+		.option {
+			font-size: @fontSizeSmall;
+			padding: 0 !important;
+			border-width: 0 !important;			
+			cursor: default !important;						
+
+			&:hover{
+				background: none !important;				
+			}
+		}
+		.progress {
+			height: 30px !important;	
+			opacity: 1 !important;		
+		}
+	}
+}
+
+// universe
+// ================================
+.loading-cover {
+	position: absolute;
+	left: 0; right: 0; top: 0; bottom: 0;
+	display: inline-block;
+	z-index: 99;
+	height: 100%;
+	width: 100%;
+	background-color: fade(@white, 95%);
+	text-align: center;
+	font-weight: bold;
+
+	.loading-alert {
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    height: 30%;
+	    width: 50%;
+	    margin: -0% 0 0 -25%;
+	}
+}

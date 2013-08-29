@@ -12,6 +12,7 @@
 @import "forms.less";
 @import "buttons.less";
 @import "menubar.less";
+@import "type.less";
 
 // utility
 
@@ -48,10 +49,11 @@
 		font-weight: bold;
 	}
 	.face:after {
-		content: ' <';
+		content: ' ';
 		margin-right: 10px;
 	}
 	.text {
+		float: left;
 		padding-right: 4px;
 	}
 	.time {		
@@ -60,9 +62,12 @@
 	.pId, .time {
 		padding: 0 5px;
 		color: @gray-light;
+		display: inline-block;
+		float: right;
 	}
-	.pId {
+	.pId {		
 		cursor: pointer;
+		text-align: right;
 		&:hover{ text-decoration: underline; color: @blue;}
 	}
 	.pCg {		
