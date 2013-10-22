@@ -18,44 +18,17 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <script src="js/libs/less-1.4.1.min.js"></script>
-        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
-        <script src="js/vendor/bootstrap.min.js"></script>        
 
-        <script id="handler"src="js/handler.js"></script>
     </head>
-    <body>
-        <!-- div.replyFormCon>.replyForm>(.contentFormCon>textarea.contentForm)+(.attachFormCon>.attachForm)+(.attachTypeCon>ul.attachType>li*5>span.glyphicon.glyphicon-picture+{圖片}) -->
+    <body>        
+        <!-- 配合 komica 文章置左的習慣 -->
+        <!-- 其實可以簡化推文 甚至不顯示 因為推文沒有附件 在看圖片的過程中相對不重要 -->
+        .media-viewerCon>.media-viewer>        
+        
+        <!-- 簡化的文章列表 plurk 的看起來很適合k島 但google 的更簡潔有力 -->
+        .viewer-article
+        <!-- 一個於右方的大型展示 block -->
+        .viewer-media
 
-        <div class="replyFormCon">
-            <div class="replyForm">
-
-                <div class="contentFormCon"><textarea name="" id="" class="contentForm" placeholder="請在這裡輸入... 點兩下會翻面"></textarea></div>
-
-                <div class="attachFormCon">
-                    <div class="attachForm"></div>
-                </div>
-
-                <div class="attachTypeCon">
-                    <ul class="attachType">
-                        <li><span class="glyphicon glyphicon-picture"></span>圖片</li><!-- 
-                     --><li><span class="glyphicon glyphicon-plane"></span>圖片</li><!-- 
-                     --><li><span class="glyphicon glyphicon-shopping-cart"></span>圖片</li><!-- 
-                     --><li><span class="glyphicon glyphicon-usd"></span>圖片</li><!-- 
-                     --><li><span class="glyphicon glyphicon-plus"></span>圖片</li>
-                    </ul>
-                </div>
-
-                <div class="formConrtrolCon">
-                    <a class="btn btn-success btn-submit"> Submit </a>
-                </div>
-                
-            </div>
-        </div>
-        <script id="entry-template" type="text/x-handlebars-template">
-           
-        </script>
-        <div class="box">
-            <!-- result container -->
-        </div>
     </body>
 </html>

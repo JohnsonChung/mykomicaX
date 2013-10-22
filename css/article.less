@@ -36,237 +36,318 @@
 	&:after { content: ""; display: table; clear: both; }
 }
 
-.messages {
-	padding-right: 40px;
+
+
+// 本文部分
+// ================================
+div.articleCon {
+	width: 880px;
+	padding: 0 40px;
+	.border;
+}
+div.headline {}
+div.article {	
+	line-height: 24px;
+	font-size: 15px;
+
+	// 本文的 相關資訊 如：日期、ID、名稱等
+	.article-head {
+		// background-color: @messageColor;
+		// margin: 0 -20px;
+		border-bottom: 1px solid @fontColor;
+		.clearfix;
+
+		div.attach-info{
+			float: left;
+		}
+		div.article-info {
+				float: right;
+			span.id {
+			}
+			a.no {
+			}
+		}
+	}
+
+	// 本文的 主要部分 附件 + 內文(主題+文章)
+	.article-body {
+		position: relative;
+
+		.attachCon {
+			float: left;
+			margin: 0 20px 0px 0;
+
+			.attach {
+				// clear image inline-block problem
+				font-size: 0;
+				line-height: 0;
+			}
+		}
+		.article-title {
+
+			div.title {	
+				display: inline-block;
+				margin: 0px 0 0px 0;
+				padding: 7px 0 0 0;
+				max-width: 545px;
+				font-size: 24px;
+				line-height: 25px;		
+				font-weight: bold;
+				border-top: 5px solid @fontColor;
+			}
+			div.article-info{
+				display: table;
+				padding: 0px 0px;				
+				color: @gray-light;
+
+				span.id {}	
+				span.date {}
+				span.time {}
+			}
+		}
+		p.content {				
+			padding: 16px 0 25px 0;	
+			margin: 0 0 0 0;
+		}
+	}
+
+	// 本文的 尾端 放置評分按鈕、其他
+	.article-footer {}
+
+}
+
+
+
+// 回應部分
+// ================================
+div.messages {}	
+div.messageCon {
+	display: table;
+	position: relative;
+	padding-left: 40px;		
+	margin: 6px 0;		
+	.transition(~'0.1s linear');
+	.transition-property( margin, border, background-color);
 	
-	.messageCon {
-		display: table;
-		position: relative;		
-		padding-left: 40px;
-		margin: 6px 0;		
-		.transition(~'0.1s linear');
-		.transition-property( margin, border, background-color);
-		
-		// 附加的 class 描述這個 messageCon 的狀態 應該可以分類到獨立的樹狀方便處理
-		&.highlight {
-			.message {				
-				background-color: @formColor;
-			}
-			&:before {
-				position: absolute;
-				left: 32px;
-				content: '';
-				height: 100%;
-				border-left: 5px solid @blue;
-			}
+	// 附加的 class 描述這個 messageCon 的狀態 應該可以分類到獨立的樹狀方便處理
+	&.highlight {
+		.message {				
+			background-color: @formColor;
 		}
-		&.selected {
-			border: 4px solid @blue;
-			background-color: @blue;
-			padding-left: 45px;
-			margin: 2px;
-
-			.message-control {
-				width: 45px;
-				
-				li {	
-					visibility: visible !important;
-
-					&:hover {
-						.glyphicon {
-							color: @white;
-						}
-					}
-					&.check {
-						font-size: 16px !important;
-					}
-					.glyphicon {
-						color: fade( @white, 80% );
-					}
-				}				
-			}
-			.manage-info {
-				display: block;
-			}
-		}
-		&:hover {
-			// hover messageCon
-			ul.infoCon {
-				.id, .posttime {					
-					color: @fontColor;
-				}
-			}
-		}
-		.message {		
-			position: relative;
-		    display: table;  
-		    padding: 5px 0 5px 0;
-		    min-height: 60px;
-	    	background-color: @messageColor;
-
-			.message-head {		
-			}
-			.message-body {
-			}
-			.message-footer {
-				position: absolute; 
-				right: 0; bottom: 0;
-			}
-		}	
-		.message-control {
+		&:before {
 			position: absolute;
-			left: 0; top: 0;
-			width: 40px;
+			left: 32px;
+			content: '';
 			height: 100%;
-			text-align: center;
-			color: @messageColor;
-			.user-select-none;
+			border-left: 5px solid @blue;
+		}
+	}
+	&.selected {
+		border: 4px solid @blue;
+		background-color: @blue;
+		padding-left: 48px;
+		margin: 2px;
 
-			&:hover {
-				.check {
+		.message-control {
+			width: 45px;
+			
+			li {	
+				visibility: visible !important;
+
+				&:hover {
+					.glyphicon {
+						color: @white;
+					}
+				}
+				&.check {
 					font-size: 16px !important;
 				}
-			}
-			ul.control-group {
-				text-align: center;
-
-				li {				
-					visibility: hidden;
-					display: inline-block;
-					padding: 0px 0;
-					width: 100%;
-					vertical-align: middle;
-
-					.glyphicon {
-					}
+				.glyphicon {
+					color: fade( @white, 80% );
 				}
-				// 控制選項的部分 
-				// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
-				li.check {
-					// 讓第一個 check box 不要隱藏
-					visibility: visible;
-					padding: 3px 0;
-					font-size: 10px;
-					.transition(~"font-size 0.1s linear");
-
-					&:hover {
-						font-size: 16px;
-					}
-				}
-				li.lineblock {
-					// 分隔線 可能會重複使用
-					border-top: 1px solid fade( white , 50%);
-					width: 50%;
-					padding: 0;
-					margin: 3px 0;
-					font-size: 0;
-					line-height: 0;
-					vertical-align: top;
-				}
-			}
+			}				
 		}
-		// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
-		.manage-info {
-			display: none;
-			line-height: 22px;
-			color: @white;
-
-			.manage-group {	
-				display: block;
-				padding: 0 10px;	
-				.clearfix;
-
-				li {
-					display: inline;
-
-					span {
-						display: inline;
-						text-align: center;
-						padding: 0 20px;
-						vertical-align: bottom;
-						&:hover {
-							background-color: fade( @white, 50% );
-						}
-					}
-				}
-			}
+		.message-manage {
+			display: block;
 		}
+	}
+	&:hover {
+		// hover messageCon
 		ul.infoCon {
-		    font-family: arial, "新細明體", Serif, Georgia;
-		    margin: 3px 5px 0 20px;
-		    color: fade( @fontColor, 40%);
-			.transition(~"0.1s linear");
-			.transition-property( color, opacity);
+			.id, .posttime {					
+				color: @fontColor;
+			}
+		}
+	}
+	.message {		
+		position: relative;
+	    display: table;  
+	    padding: 5px 0 5px 0;
+	    min-height: 60px;
+    	background-color: @messageColor;
+
+		.message-head {		
+		}
+		.message-body {
+		}
+		.message-footer {
+			position: absolute; 
+			right: 0; bottom: 0;
+		}
+	}	
+	.message-control {
+		position: absolute;
+		left: 0; top: 0;
+		width: 40px;
+		height: 100%;
+		text-align: center;
+		color: @messageColor;
+		.user-select-none;
+
+		&:hover {
+			.check {
+				font-size: 20px !important;
+			}
+		}
+		ul.control-group {
+			text-align: center;
+
+			li {				
+				visibility: hidden;
+				display: inline-block;
+				padding: 0px 0;
+				width: 100%;
+				vertical-align: middle;
+
+				.glyphicon {
+				}
+			}
+			// 控制選項的部分 
+			// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
+			li.check {
+				// 讓第一個 check box 不要隱藏
+				visibility: visible;
+				padding: 3px 0;
+				font-size: 10px;
+				.transition(~"font-size 0.1s linear");
+
+				&:hover {
+					font-size: 16px;
+				}
+			}
+			li.lineblock {
+				// 分隔線 可能會重複使用
+				border-top: 1px solid fade( white , 50%);
+				width: 50%;
+				padding: 0;
+				margin: 3px 0;
+				font-size: 0;
+				line-height: 0;
+				vertical-align: top;
+			}
+		}
+	}
+	// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
+	.message-manage {
+		display: none;
+		line-height: 22px;
+		color: @white;
+
+		.manage-group {	
+			display: block;
+			padding: 0 10px;	
 			.clearfix;
 
 			li {
-				display: inline-block;
-				padding-right: 8px;
+				display: inline;
+
+				span {
+					display: inline;
+					text-align: center;
+					padding: 0 20px;
+					vertical-align: bottom;
+					&:hover {
+						background-color: fade( @white, 50% );
+					}
+				}
 			}
-		    .title {
-				font-weight: bold;
-				color: @titleColor;
-		    }
-		    .name {
-				font-weight: bold;
-				color: @nameColor;
-		    }
-		    .id {			
-		    	
-		    	&:first-letter {
-		    		font-size: 22px;
-		    		font-weight: bold;
-		    	}		    	
-		    }
-		    .posttime {    
-	    		font-size: @fontSizeSmall;
-		    }
-		    .postnumber {
-				position: relative;
-				right: 0;
-				padding-right: 0;
-		   		color: fade( @fontColor, 20%);
-	    		font-size: @fontSizeMini;
-		    }
 		}
-		.content {		
-			margin: 0;			
-			padding: 10px 20px 15px 20px;
-			min-width: 280px;
-			line-height: 22px;
-			word-break: break-all;
+	}
+	ul.infoCon {
+	    font-family: arial, "新細明體", Serif, Georgia;
+	    margin: 3px 5px 0 20px;
+	    color: fade( @fontColor, 40%);
+		.transition(~"0.1s linear");
+		.transition-property( color, opacity);
+		.clearfix;
 
-		}		
-		.attachCon {
+		li {
+			display: inline-block;
+			padding-right: 8px;
+		}
+	    .title {
+			font-weight: bold;
+			color: @titleColor;
+	    }
+	    .name {
+			font-weight: bold;
+			color: @nameColor;
+	    }
+	    .id {			
+	    	
+	    	&:first-letter {
+	    		font-size: 22px;
+	    		font-weight: bold;
+	    	}		    	
+	    }
+	    .posttime {    
+    		font-size: @fontSizeSmall;
+	    }
+	    .postnumber {
+			position: relative;
+			right: 0;
+			padding-right: 0;
+	   		color: fade( @fontColor, 20%);
+    		font-size: @fontSizeMini;
+	    }
+	}
+	.content {		
+		margin: 0;			
+		padding: 10px 20px 15px 20px;
+		min-width: 280px;
+		line-height: 22px;
+		word-break: break-all;
 
-			&:hover {
-				.attach-control {
-				  .opacity(1); 
-				}
-			}			
-			&:before {
-				// 修正圖片造成寬度不夠的問題 這個方法很有趣 利用了css 的bug? 研究清楚會很有幫助
-				float: right;
-				content: "";
-				margin: 0;
-				padding: 0;
-				width: 245px;
-				line-height: 0;
-				font-size: 0;
-			}
-			.attach {
-				position: relative;
-				float: left;
-				margin: 10px 20px 20px 20px;  
-			}
+	}		
+	.attachCon {
+
+		&:hover {
 			.attach-control {
+			  .opacity(1); 
 			}
-			.attach-info {
-				.type {
-					position: absolute;
-					left: 0; bottom: -10px;
-					font-size: @fontSizeMini;
-				}
+		}			
+		&:before {
+			// 修正圖片造成寬度不夠的問題 這個方法很有趣 利用了css 的bug? 研究清楚會很有幫助
+			float: right;
+			content: "";
+			margin: 0;
+			padding: 0;
+			width: 245px;
+			line-height: 0;
+			font-size: 0;
+		}
+		.attach {
+			position: relative;
+			float: left;
+			margin: 10px 20px 20px 20px;  
+		}
+		.attach-control {
+		}
+		.attach-info {
+			.type {
+				position: absolute;
+				left: 0; bottom: -10px;
+				font-size: @fontSizeMini;
 			}
 		}
 	}

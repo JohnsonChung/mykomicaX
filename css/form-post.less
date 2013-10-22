@@ -1,0 +1,199 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+@import "forms.less";
+@import "buttons.less";
+@import "menubar.less";
+
+// utility
+
+// Form
+// ================================
+
+
+// basicForm
+// ================================
+.formWidth( @level: 1, @padding: 0){
+	width: (200px - 20px) * @level - ( @padding * 2); 
+}
+
+.textarea {
+	@lineHeight: 24px;
+	@padding-vertical: 10px;
+	@padding-horizontal: 10px;
+	
+	position: relative;
+	margin: 0 auto;	
+	padding: @padding-vertical @padding-horizontal;
+
+	height: @lineHeight * 7;
+	.formWidth(3, @padding-horizontal);
+	
+	background-color: @white;
+	outline: 0;
+	.border(@gray-light);
+
+	color: @fontColor;
+	font-size: 16px;
+	line-height: @lineHeight;
+	text-align: left;
+	white-space: normal;
+	word-break: normal;	
+	word-wrap: break-word;	
+
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+
+// PostForm
+// ================================
+#postFormCon {
+	// 配合js 往下捲動後會靠右，可以邊看文邊回應。
+	&.right {
+		position: fixed;
+		width: 100%;
+		right: 0; top: 0;
+
+		#postForm {
+			position: absolute;
+			right: 0;
+		}
+		.menu-bar {
+			display: block;
+			width: 100%;
+		}
+	}	
+	// 收折成一個小小的發文框
+	&.close {
+
+	}
+}
+#postForm {
+	@lineheight: 22px;
+	.transition(~"0.5s linear");
+	.transition-property( position, float );
+
+	// 讓寬度階梯化
+	#formTitleCon,
+	#contentFormCon,
+	#attachTypeCon,
+	#controlCon  {
+		margin: 0 auto;
+		width: 600px;
+		text-align: center;
+	}
+	.btn-group,
+	.attach-group {
+		display: table;
+		margin: 0 auto;
+	}
+	.container {
+		margin: 0 auto;		
+		background-color: @messageColor;
+		padding-bottom: 6px;
+	}
+	// 表頭
+	#formTitleCon {
+
+		#user-id {
+			position: relative;
+			.size(auto, 35px);
+			text-align: left;
+			margin-left: 30px;
+			line-height: 35px;
+			vertical-align: middle;
+			font-size: 18px;
+			font-weight: normal;			
+			color: fade( @fontColor, 30% );
+
+			.id-first-letter {
+				position: absolute;
+				left: -23px;				
+				.rotate(-15deg);
+				font-size: 28px;
+				font-weight: bold;
+				color: fade( @fontColor, 60% );
+			}
+		}
+	}
+	// 本文輸入
+	#contentFormCon {
+		// 前後綴的屬性的命名方式和順序要思考一下 
+		// form 是 區域 位置 用途 之類的...
+		// textarea 是 dom 主類別
+		position: relative;
+
+		input#input-name {
+			.formWidth(1);
+		}
+		input#input-title {
+			.formWidth(2);
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 2;
+			left: 43px; top: -8px;
+			width: 0;
+			border-width: 0px 9px 9px 9px;
+			border-style: solid;
+			border-color: @gray-light transparent;              
+		}
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 3;
+			left: 45px; top: -7px;
+			width: 0;
+			border-width: 0px 7px 8px 7px;
+			border-style: solid;
+			border-color: @white transparent;              
+		}
+	}
+	// 附件檔案
+	#attachTypeCon {
+
+		.attach-group {
+			height: 300px;
+			background-color: @gray-light;
+			.formWidth(3);
+		}
+		li {
+			a {
+				display: block;
+				font-size: @fontSizeMini;
+				color: @fontColor;
+				float: left;
+				text-decoration: none;
+				.size(70px, 40px);
+				.border;
+
+				span.glyphicon {
+					display: block;
+					font-size: 25px;
+				}
+			}
+		}
+	}
+	// 控制區
+	#controlCon {
+		.clearfix;
+		.btn {
+			
+		}
+	}
+	
+}
