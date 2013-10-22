@@ -28,7 +28,7 @@
     $(document).ready( function() {
         
         // Message 勾選 切換 .selected 狀態
-        $(".message-control").click( function(){
+        $(".message-control, .article-control").click( function(){
             $(this).find('.check').children('span').toggleClass('glyphicon-stop glyphicon-check');
             $(this).parent().toggleClass('selected');
         });

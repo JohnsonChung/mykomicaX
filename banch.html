@@ -65,25 +65,37 @@
 
                 <div class="article-control">
                     <ul class="control-group">
-                        <li class="check"><span class="glyphicon-stop glyphicon"></span></li>
+                        <li class="check">
+                            <span class="glyphicon-stop glyphicon"></span>
+                        </li>
                         <li class="lineblock"></li>
-                        <li class="flag"><span class="glyphicon-flag glyphicon"></span></li>
-                        <li class="edit"><span class="glyphicon-pencil glyphicon"></span></li>
+                        <li class="flag">
+                            <span class="glyphicon-flag glyphicon"></span>
+                            <div>檢舉</div>
+                        </li>
+                        <li class="edit">
+                            <span class="glyphicon-pencil glyphicon"></span>
+                            <div>編輯</div>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="article-manage">
                     <ul class="manage-group">
                         <li>
-                            <span class="ip">{{IP}}</span>
+                            <span class="ip">IP: 192.168.0.1</span>
                         </li>
-                        <li><span class="glyphicon-magnet glyphicon"></span></li>
-                        <li><span class="glyphicon-filter glyphicon"></span></li>
+                        <li>
+                            <span class="glyphicon-magnet glyphicon"></span>
+                        </li>
+                        <li>
+                            <span class="glyphicon-filter glyphicon"></span>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="article">
-
+                    <!-- HEAD -->
                     <div class="article-head">
                         <div class="attach-info">
                             <span class="filename">12446890223</span>
@@ -98,40 +110,26 @@
                                    <a href="" class="no"><span>No.15789620</span></a> 
                                 </li>
                             </ul>                              
-                        </div>                         
-                    </div>
-
-                    <div class="article-body">
-                        <style>
-                        .action { 
-                            float: right;   
-                        }            
-                        .action a { 
-                            display: block;
-                            padding: 3px 5px;
-                            text-align: center;
-                            font-size: 12px;
-                            line-height: 14px;
-                        }            
-                        a.reply-btn {  }
-                        a.push-btn {;}
-                        </style>
-                        <div class="action">
-                            <ul class="inline-group">
-                                <li>
-                                    <a href="#" class="push-btn">
-                                        <div>[ 推 ]</div>
+                        </div>  
+                        <div class="article-action">
+                            <ul class="action-group">
+                                <li class="action">
+                                    <a href="#" class="reply-btn">
+                                        <div>返信</div>
                                         <div class="reply-count">12</div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="reply-btn">
-                                        <div>[ 回應 ]</div>
-                                        <div class="reply-count">12</div>
+                                <li class="action">
+                                    <a href="#" class="push-btn">
+                                        <div>[ 推文 ] </div>
+                                        <div class="reply-count">12123</div>
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div>                       
+                    </div>
+                    <!-- BODY -->
+                    <div class="article-body">
                         <div class="attachCon">
                             <div class="attach">
                                 <img alt="" src="http://placehold.it/185x250/8e0000/ffffff.png" />
@@ -139,7 +137,7 @@
                         </div>
                         <div class="article-title">
                             <div class="title">
-                                駆逐艦娘「夕立改二」ボイスの新録音/更新
+                                駆逐艦娘「夕立改二」ボイスの新録音/更新改装実装!
                             </div>
                             <div class="article-info">
                                 <span class="date">2013年11月23日(五) </span>
@@ -190,7 +188,7 @@
                             を削除した後再接続して頂けますと、症状が改善される場合があります。
                             <br>ぜひ、お試しください。</p>
                         </div>
-
+                    <!-- FOOTER -->
                     <div class="article-footer">
                         <div class="rating"></div>
                         <ul class="infoCon">
@@ -243,7 +241,7 @@
 
         <div>
             
-            <div class="nav nav-bottom"> NAV </div>
+            <div class="action-bar action-bar-bottom" style="color:white;"> Action </div>
             <div class="box box-float">
                 <div class="reply-forward">
                     給 [ No.123415 東方廚 ] 的回應

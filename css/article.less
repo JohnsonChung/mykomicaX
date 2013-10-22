@@ -19,6 +19,7 @@
 .posLB { left: 0; bottom: 0;}
 .posRB { right: 0; bottom: 0;}
 
+// 未完成
 .tranEaseOut(...) {
 	@props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
 	.transition-property(@props);
@@ -41,9 +42,41 @@
 // 本文部分
 // ================================
 div.articleCon {
+	position: relative;
 	width: 880px;
+	margin: 0 auto;
 	padding: 0 40px;
-	.border;
+	
+	&.selected {
+		border-width: 0 5px;
+		padding: 0 50px;
+
+		.article-control {
+			width: 45px;
+			background-color: @blue;
+			color: @white;
+			font-size: 13px;
+			
+			li {	
+				visibility: visible !important;
+
+				&:hover {
+					.glyphicon {
+						color: @white;
+					}
+				}
+				&.check {
+					font-size: 16px !important;
+				}
+				.glyphicon {
+					color: fade( @white, 80% );
+				}
+			}				
+		}
+		.article-manage {
+			display: block;
+		}
+	}
 }
 div.headline {}
 div.article {	
@@ -52,8 +85,7 @@ div.article {
 
 	// 本文的 相關資訊 如：日期、ID、名稱等
 	.article-head {
-		// background-color: @messageColor;
-		// margin: 0 -20px;
+		position: relative;
 		border-bottom: 1px solid @fontColor;
 		.clearfix;
 
@@ -67,6 +99,39 @@ div.article {
 			a.no {
 			}
 		}
+		// 暫定class 用來放置用戶回應、推文的地方
+        .article-action { 
+        	position: absolute;
+        	right: -50px; top: 24px;
+        	
+
+            a.reply-btn, 
+            a.push-btn { 
+	            display: block;  
+    			margin: 0 auto 5px auto;
+	            padding: 3px 5px;	
+	            width: 40px;
+	            text-align: center;
+	            font-size: 12px;
+	            line-height: 14px;
+        	}
+        	a.reply-btn {
+				color: @white !important;
+				background-color: @blue;  
+	            text-decoration: none;
+
+    			&:hover {    
+    				background-color: lighten(@blue, 10%);
+    			}   
+        	}
+        	a.push-btn {}
+        	ul.action-group {
+        		li.action {		
+        		}
+        	}
+        }   
+        a.reply-btn {}
+        a.push-btn {}
 	}
 
 	// 本文的 主要部分 附件 + 內文(主題+文章)
@@ -75,7 +140,7 @@ div.article {
 
 		.attachCon {
 			float: left;
-			margin: 0 20px 0px 0;
+			margin: 0 20px 5px 0;
 
 			.attach {
 				// clear image inline-block problem
@@ -89,11 +154,10 @@ div.article {
 				display: inline-block;
 				margin: 0px 0 0px 0;
 				padding: 7px 0 0 0;
-				max-width: 545px;
-				font-size: 24px;
+				max-width: 480px;
+				font-size: 18px;
 				line-height: 25px;		
 				font-weight: bold;
-				border-top: 5px solid @fontColor;
 			}
 			div.article-info{
 				display: table;
@@ -114,6 +178,84 @@ div.article {
 	// 本文的 尾端 放置評分按鈕、其他
 	.article-footer {}
 
+}
+// 本文控制
+.article-control {
+	position: absolute;
+	left: 0; top: 25px;
+	width: 40px;
+	height: 100%;
+	text-align: center;
+	color: @fontColor;
+	.user-select-none;
+
+	&:hover {
+		.check {
+			font-size: 20px !important;
+		}
+	}
+	ul.control-group {
+		text-align: center;
+
+		li {				
+			visibility: hidden;
+			display: inline-block;
+			padding: 0px 0;
+			width: 100%;
+			vertical-align: middle;
+
+			.glyphicon {
+			}
+		}
+		// 控制選項的部分 
+		// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
+		li.check {
+			// 讓第一個 check box 不要隱藏
+			visibility: visible;
+			padding: 3px 0;
+			font-size: 10px;
+			.transition(~"font-size 0.1s linear");
+
+			&:hover {
+				font-size: 16px;
+			}
+		}
+		li.lineblock {
+			// 分隔線 可能會重複使用
+			border-top: 1px solid fade( white , 50%);
+			width: 50%;
+			padding: 0;
+			margin: 3px 0;
+			font-size: 0;
+			line-height: 0;
+			vertical-align: top;
+		}
+	}
+}
+// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
+.article-manage {
+	display: none;
+	line-height: 22px;
+
+	.manage-group {	
+		display: block;
+		padding: 0 10px;	
+		.clearfix;
+
+		li {
+			display: inline;
+
+			span {
+				display: inline;
+				text-align: center;
+				padding: 0 20px;
+				vertical-align: bottom;
+				&:hover {
+					background-color: fade( @white, 50% );
+				}
+			}
+		}
+	}
 }
 
 
@@ -142,6 +284,7 @@ div.messageCon {
 			border-left: 5px solid @blue;
 		}
 	}
+	// 選取後的本文樣式, 籃框, 管理按鈕
 	&.selected {
 		border: 4px solid @blue;
 		background-color: @blue;
@@ -195,6 +338,9 @@ div.messageCon {
 			right: 0; bottom: 0;
 		}
 	}	
+
+	// 左方條狀控制列樣式，再來建立成mixin形式
+	// ================================
 	.message-control {
 		position: absolute;
 		left: 0; top: 0;

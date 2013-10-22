@@ -27,3 +27,33 @@
  // 附件內的結構
  // 主題 + 內容 + 資訊 + 控制項
 .title + .xxx + .info + .control  
+
+// LESS樣式檔案簡述
+// ============================
+@import "lesshat.less"; // lesshat的核心樣式，裡面有大量簡化less流程的mixin
+@import "normalize.less"; // 初始化各瀏覽器的樣式
+
+@import "combine.less"; // 組合less樣式，放置globle樣式
+@import "banch.less"; // 實驗台拼錯了應該是bench
+
+@import "variable.less"; // less變數放置 ex: @formColor, @padding-normal...
+@import "utility.less"; // less常用組件放置 ex:pull-right, clearfix...
+@import "mixin.less"; // 常用less樣式架構 (?)
+@import "main.css"; // (?)
+
+@import "buttons.less"; // 部分抄自bootstrap的按鈕樣式
+@import "form-post.less"; //
+@import "forms.less"; //
+@import "menubar.less"; // 通用控制列樣式, 現在用來管理投票, 推文等...
+
+@import "article.less"; // 目前用來放置本文和回復樣式
+@import "push.less"; // 推文樣式
+@import "vote.less"; // 投票樣式
+@import "image.less"; //
+@import "type.less"; //
+
+@import "color.less"; // less 配合 variable 統一管理顏色
+@import "swatches.less"; // 論壇基本色票
+
+
+
