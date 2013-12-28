@@ -1,0 +1,110 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+@import "utility.less";
+@import "variable.less";
+@import "swatches.less";
+@import "color.less";
+@import "forms.less";
+@import "buttons.less";
+@import "menubar.less";
+
+// utility
+
+// Post
+// ================================
+
+
+// article-bar 暫定
+// ================================
+
+.mybox,
+.myDiary {
+	position: relative;
+	width: 960px;
+	margin-left: 40px;
+}
+.mybox{
+	.clearfix;
+	margin-top: 100px;
+	text-align: center;
+	.border;
+	border-width: 0 0 1px 1px;
+}
+.myDiary {	
+}
+.box-left,
+.box-right {
+}
+.box-right{
+	float: right;
+	max-width: 400px;
+	ul {
+		li {
+			display: inline-block;
+		}
+	}
+}
+.box-left{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: -40px;
+	background-color: red;
+	color: white;
+}
+.box-center {
+}
+.line-blocker {
+	margin-top: 0px;
+	width: 100%;
+	.clearfix;
+}
+
+.myWord,
+.myPhoto {	
+}
+.myPhoto {
+	margin: -40px 10px auto 10px;
+	width: 150px;
+	height: 300px;
+	float: left;
+	cursor: pointer;
+	.border(blue);
+	background-color: @gray-lighter
+}
+.myTitle {
+	padding-top: 10px;
+}
+.myWord {
+	padding: 10px;	
+	padding-top: 10px;
+	line-height: 22px;
+}
+
+// action-bar 用來處理 使用者 -action 的狀態
+// 類似 G+ 相簿選取相片後會出現的功能列
+.action-bar.bar-top {}
+.action-bar.bar-bottom {
+	position: fixed;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: 26px; // 26 + 7 + 7 = 40 
+	padding: 7px 10px;
+	background-color: @gray-light;
+	font-size: 26px;
+	line-height: 26px;
+	font-weight: bold;
+}
+.box-float{
+	position: fixed;
+	bottom: 40px;
+	right: 0;
+	background-color: @gray-lighter;
+	padding: 20px;
+}

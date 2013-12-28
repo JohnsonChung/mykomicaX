@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/combine.less" type="text/less">
+        <link rel="stylesheet" href="css/article.less" type="text/less">   
+        <link rel="stylesheet" href="css/banch.less" type="text/less">      
+
+        <script src="js/vendor/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="js/libs/less-1.4.1.min.js"></script>
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+
+        <script id="handler" src="js/handler-reader.js"></script>
+        <script id="handler" src="js/plugins.js"></script>
+    </head>
+    <body>       
+        <!-- 標頭 控制列 回應 基本資訊 -->
+        .article-head
+
+        <!-- 文章標頭  -->
+            <!-- 一階控制 --> <!-- 收折 --> <!-- 發文ID 標題 時間--> <!-- 編號 回應數 推文 回應 開新視窗 -->
+            <!-- 側邊控制 --> <!-- 選取框 --> 
+                <!-- 二階控制 --> <!-- 檢舉 --> <!-- IP 封鎖 刪除 禁止回應 --> <!-- 編輯 刪除 -->
+            
+        .headlineCon>.headline>            
+            .menu-bar>.control-group.inline-group>li>.btn.btn-menu>span.glyphicon.glyphicon-trash
+            ul.control-group.inline-group>li>.check>span.glyphicon.glyphicon-stop
+            ul.info-group.inline-group>li.id{eA1PaEss}+li.name{東方廚}+li.title{今天我生日喔}
+            ul.control-group.inline-group>(li>.replycount)+(li>.reply{回應})
+            
+        <!-- 本文 -->
+            <!-- 附件 --> <!-- 圖片 投票 影片 ... -->
+            <!-- 本文 --> <!-- 暱稱 文章 -->
+            <!-- 評分 -->
+        .section
+            .attach.attach-normal
+            .attach.attach-large
+            .attach.attach-festival
+            p.content
+            
+        <!-- 文章 回覆 -->
+        .article-body
+
+        <!-- 回應 其他可能.... -->
+        .article-footer
+
+        <script id="template" type="text/x-handlebars-template">
+        </script>  
+        
+        <div class="box"></div>
+
+        <div>
+            <div class="articleCon">
+
+                <div class="article-control">
+                    <ul class="control-group">
+                        <li class="check">
+                            <span class="glyphicon-stop glyphicon"></span>
+                        </li>
+                        <li class="lineblock"></li>
+                        <li class="flag">
+                            <span class="glyphicon-flag glyphicon"></span>
+                            <div>檢舉</div>
+                        </li>
+                        <li class="edit">
+                            <span class="glyphicon-pencil glyphicon"></span>
+                            <div>編輯</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="article-manage">
+                    <ul class="manage-group">
+                        <li>
+                            <span class="ip">IP: 192.168.0.1</span>
+                        </li>
+                        <li>
+                            <span class="glyphicon-magnet glyphicon"></span>
+                        </li>
+                        <li>
+                            <span class="glyphicon-filter glyphicon"></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="article">
+                    <!-- HEAD -->
+                    <div class="article-head">
+                        <div class="attach-info">
+                            <span class="filename">12446890223</span>
+                            <span class="type">Jpg</span>
+                        </div>     
+                        <div class="article-info">
+                            <ul class="inline-group">
+                                <li>
+                                    <span class="id">ID: As4wogS3x</span> 
+                                </li>
+                                <li>
+                                   <a href="" class="no"><span>No.15789620</span></a> 
+                                </li>
+                            </ul>                              
+                        </div>  
+                        <div class="article-action">
+                            <ul class="action-group">
+                                <li class="action">
+                                    <a class="reply-btn">
+                                        <div>返信</div>
+                                        <div class="reply-count">12</div>
+                                    </a>
+                                </li>
+                                <li class="action">
+                                    <a class="push-btn">
+                                        <div>[ 推文 ] </div>
+                                        <div class="reply-count">12123</div>
+                                    </a>
+                                </li>
+                                <li class="action">
+                                    <a class="link-btn">
+                                        <div>[ 連結 ] </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>                       
+                    </div>
+                    <!-- BODY -->
+                    <div class="article-body">
+                        <div class="attachCon">
+                            <div class="attach">
+                                <img alt="" src="http://placehold.it/185x250/8e0000/ffffff.png" />
+                            </div>
+                        </div>
+                        <div class="article-title">
+                            <div class="title">
+                                駆逐艦娘「夕立改二」ボイスの新録音/更新改装実装!
+                            </div>
+                            <div class="article-info">
+                                <span class="date">2013年11月23日(五) </span>
+                                <span class="time">PM 1:24</span>
+                            </div>         
+                        </div>
+                        <p class="content">
+                            ある駆逐艦娘の新改装実装!
+                            →駆逐艦娘1隻が、少し高い練度(レベル)において、さらなる改装(改造)が可能となりました。
+                            <br>                     
+                            <br>                      
+                            最前戦海域【夜戦】マップの追加実装
+                            <br>                     
+                            <br>                      
+                            →現在の最前戦#5-3に【夜戦】を中心とした新海域が追加実装されました
+                            <br>                      
+                            <br>                     
+                            また、同海域の最深部では、先のイベントで先行実装された重巡洋艦「鈴谷」や、
+                            伊号潜水艦、五航戦などもゲット可能です
+                            <br>                        
+                            ※艦隊編成によって、航路をある程度コントロールすることが可能です
+                            <br>                        
+                            重巡「鈴谷」建造可能に
+                            <br>                        
+                            →先のイベントで先行配信された重巡洋艦「鈴谷」が建造可能になりました
+                            <br>                        
+                            戦闘後のジングルBGMを更新
+                            <!br>                        
+                            →戦闘後のファンファーレBGMを一新、勝利ランク毎に雰囲気が微妙に変わる仕様に更新されました
+                            <br>                        
+                            【月次作戦】レポートが更新されました
+                            <br>                        
+                            →先の【9月作戦】の各サーバ群毎のランキング発表、及び【8月作戦】の最終報告書が
+                            画面下の【情報】にそれぞれ公開されました
+                            <!br>                        
+                            同"ささやかなプレゼント"の内容は別途お知らせ致します
+                            <br>                        
+                            (同配信は来週中に実施予定です)
+                            <br>                        
+                            メンテナンスの完了後は接続状態が大変混雑する場合がございます。
+                            <br>                        
+                            その場合は、少しだけ時間をおいた、ゆとりのご接続を、どうぞよろしくお願い致します。
+                            <br>                        
+                            画面や表示等に乱れがある場合は一度ブラウザの
+                            <br>                        
+                            【キャッシュ(=インターネット一時ファイル)】
+                            <br>                        
+                            を削除した後再接続して頂けますと、症状が改善される場合があります。
+                            <br>ぜひ、お試しください。</p>
+                        </div>
+                    <!-- FOOTER -->
+                    <div class="article-footer">
+                        <div class="rating"></div>
+                        <ul class="infoCon">
+                            <li class="postnumber">{{POSTNUMBER}}</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="mybox">
+                <div class="box-left"><ul><li>LEFT</li></ul></div>
+                <div class="box-right"><ul>
+                    <li>我的最愛</li>
+                    <li> | GJ | </li>
+                    <li>推文</li>
+                    <li>回應(1572)</li>
+                </ul></div>
+                <div class="box-center">Center</div>
+                <div class="line-blocker"></div>
+            </div>
+            <div class="myDiary">
+                <div class="myPhoto">myPhoto</div>
+                <div class="myTitle"> 東方廚 ： Title YAaaaaaaa YAaaaaaaa YAaaaaaaa YAaaaaaaa YAaaaaaaa YAaaaaaaaa!!!!</div>
+                <div class="myWord">myWord ある駆逐艦娘の新改装実装!
+            →駆逐艦娘1隻が、少し高い練度(レベル)において、さらなる改装(改造)が可能となりました。<br>
+            最前戦海域【夜戦】マップの追加実装<br>
+            →現在の最前戦#5-3に【夜戦】を中心とした新海域が追加実装されました<br>
+            　また、同海域の最深部では、先のイベントで先行実装された重巡洋艦「鈴谷」や、
+            伊号潜水艦、五航戦などもゲット可能です<br>
+            ※艦隊編成によって、航路をある程度コントロールすることが可能です<br>
+            重巡「鈴谷」建造可能に<br>
+            →先のイベントで先行配信された重巡洋艦「鈴谷」が建造可能になりました<br>
+            戦闘後のジングルBGMを更新<!br>
+            →戦闘後のファンファーレBGMを一新、勝利ランク毎に雰囲気が微妙に変わる仕様に更新されました<br>
+            【月次作戦】レポートが更新されました<br>
+            →先の【9月作戦】の各サーバ群毎のランキング発表、及び【8月作戦】の最終報告書が
+            画面下の【情報】にそれぞれ公開されました<!br>
+            　同"ささやかなプレゼント"の内容は別途お知らせ致します<br>
+            　(同配信は来週中に実施予定です)   <br>
+            メンテナンスの完了後は接続状態が大変混雑する場合がございます。<br>
+            その場合は、少しだけ時間をおいた、ゆとりのご接続を、どうぞよろしくお願い致します。<br>
+            画面や表示等に乱れがある場合は一度ブラウザの<br>
+            【キャッシュ(=インターネット一時ファイル)】<br>
+            を削除した後再接続して頂けますと、症状が改善される場合があります。<br>
+            ぜひ、お試しください。</div>
+            </div>
+        </div>
+
+        <div>
+            
+            <div class="action-bar bar-bottom" style="color:white;"> 回應模式 </div>
+            <div class="box box-float">
+                <div class="reply-forward">
+                    給 [ No.123415 東方廚 ] 的回應 //可以選擇對象?
+                </div>
+                <form action="">
+                    <input type="text" placeholder="mytitle">
+                </form>
+                <form action="">
+                    <textarea name="" id="" cols="50" rows="10">//還有上傳圖片的位置</textarea>
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>

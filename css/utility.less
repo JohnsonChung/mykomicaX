@@ -1,6 +1,7 @@
 // utility 
-.border( @color:red ) {
+.border( @color: red, @width: 1px ) {
 	border: 1px solid @color;
+	border-width: @width;
 }
 .posLT { left: 0; top: 0;}
 .posRT { right: 0; top: 0;}
@@ -38,12 +39,23 @@
 	.clearfix;
 	li {
 		float: left;
-		padding: 0 5px;
-		margin-right: 5px;
+		padding: 0 2px;
+		margin-right: 3px;
 		&:last-child {
 			padding-right: 0;
 		}
 	}
+}
+
+div.lineblock-vertical{ 
+	// 目前用在本文上面的 top-link
+	border-left: 1px solid @gray-lighter;
+	height: 20px;
+	padding: 0;
+	margin: 0 5px;
+
+	font-size: 0;
+	vertical-align: top;
 }
 
 li.lineblock-vertical {

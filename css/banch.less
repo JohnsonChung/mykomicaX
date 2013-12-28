@@ -13,95 +13,203 @@
 @import "buttons.less";
 @import "menubar.less";
 
-// utility
 
-// Post
-// ================================
+// variable
+@article-width: 1080px;
+@attach-image-width:  460px;
+@attach-image-height: 320px;
+
+@brand-width: 280px;
+@brand-backgroundColor: none;
 
 
-// article-bar 暫定
-// ================================
-
-.mybox,
-.myDiary {
-	position: relative;
-	width: 960px;
-	margin-left: 40px;
-}
-.mybox{
+// top-link =========================================================
+.top-link {	
+	padding: 10px 10px;
 	.clearfix;
-	margin-top: 100px;
-	text-align: center;
-	.border;
-	border-width: 0 0 1px 1px;
-}
-.myDiary {	
-}
-.box-left,
-.box-right {
-}
-.box-right{
-	float: right;
-	max-width: 400px;
-	ul {
-		li {
-			display: inline-block;
+
+	.link-group {
+		float: right;	
+	}
+	.active {
+		font-weight: bold;
+
+		&:before {
+			content: '[ ';
+		}
+		&:after {
+			content: ' ]';
 		}
 	}
 }
-.box-left{
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin-left: -40px;
-	background-color: red;
-	color: white;
+
+
+// Header ===========================================================
+.header {
+	margin: 0 auto;
+	width: @article-width;
+	height: @brand-width !important;
+	.clearfix;
+
+	.border(@gray-lightest);
+
+	.board-brand {
+		float: left;
+
+		img.brand {
+			.size(@brand-width, @brand-width);
+			background-color: @brand-backgroundColor;
+		}
+	}
+	.board-info {
+		float: left;
+		padding: @paddingLarge;
+		padding-bottom: 0;
+		width: @article-width - @brand-width - 50px;
+
+		.board-name { 
+			padding: 5px 0;
+			font-weight: bold;
+			font-size: @fontSizeLargest;
+			color: @blue;			
+		}
+		.board-intro {	
+			padding: 10px 0;
+			line-height: @lineheightLarge;
+		}
+		.board-status {
+			font-size: @fontSizeMini;
+			color: @gray-light;
+		}
+	}
+	.post-form {
+		float: left;
+		padding: @paddingLarge;
+		width: @article-width - @brand-width - 50px;
+
+		textarea {
+			.box-shadow(~"0 0 10px rgba(0,0,0,0.15) inset");
+			.border(@gray-lighter);
+			padding: @paddingNormal;			
+		}
+	}
 }
-.box-center {
+
+
+// Post =============================================================
+.article {
+	display: block;	
+	margin: 0 auto;	
+	padding: 0 10px;
+	width: @article-width - 20px; // padding: 0 10;
+	.border(@gray-lightest, 0 1px);
 }
-.line-blocker {
-	margin-top: 0px;
+.action-group {		
+	display: inline-block;
 	width: 100%;
 	.clearfix;
+
+	.btn-reply {
+		float: right;
+	}
+}
+.headline {
+	border-top: 1px solid @fontColor;	
+	margin-bottom: 5px;	
+	.clearfix;
+
+	.titleCon {
+		float: left;		
+		// min-width: @article-width - @attach-image-width - 50px; 
+		width: 100%;
+		margin-right: -@attach-image-width - 10px;
+		// fluid + fixed content margin method;
+		// I want to change to Tabel-cell method but when the time coming;
+
+		.title {			
+			padding: @paddingNormal;
+			margin-right: @attach-image-width + 10px;
+			background-color: @fontColor;
+			color: white;
+			font-weight: bold;
+		}
+	}
+	.info {
+		float: right;
+		width: @attach-image-width;
+		padding: 4px 0;
+
+		.info-attach {
+			float: left;
+
+			label.label-jpg {
+				margin: 0 5px 0 0;
+				padding: @paddingMini;
+				background-color: @green;
+
+				color: white;
+				font-size: 12px !important;
+				line-height: 12px;
+			}
+			span {
+				margin-right: 3px;
+			}
+			span.image-name {				
+
+			}
+			span.image-size {
+				color: @gray-light;
+			}
+		}
+		.postNo {
+			float: right;
+		}
+	}
+}
+.imgCon {
+	.size(@attach-image-width, @attach-image-height);
+	float: right;
+	margin-left: 10px;	
+	margin-bottom: 10px;
+	overflow: hidden;
+
+	background-color: #eee;
+
+	img {
+		max-width: 100%;
+		width: 100%;
+		height: auto; 
+		float: left;
+		font-size: 0;
+		line-height: 0;	
+	}
+}
+.msgCon {
+	
+	.msg {
+		display: table;		
+		margin: 0 0px 4px 0px;
+		padding: @paddingLarge;
+		min-width: 180px;
+		min-height: 20px;
+
+		line-height: 22px;
+		font-size: auto;
+
+		background-color: @messageColor;
+	}
+	.msg-main {
+		
+	}
 }
 
-.myWord,
-.myPhoto {	
-}
-.myPhoto {
-	margin: -40px 10px auto 10px;
-	width: 150px;
-	height: 300px;
-	float: left;
-	cursor: pointer;
-	.border(blue);
-	background-color: @gray-lighter
-}
-.myTitle {
-	padding-top: 10px;
-}
-.myWord {
-	padding: 10px;	
-	padding-top: 10px;
-	line-height: 22px;
-}
 
-.action-bar.bar-bottom {
-	position: fixed;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	height: 26px; // 26 + 7 + 7 = 40 
-	padding: 7px 10px;
-	background-color: @gray-light;
-	font-size: 26px;
-	line-height: 26px;
-	font-weight: bold;
-}
-.box-float{
-	position: fixed;
-	bottom: 40px;
-	right: 0;
-	background-color: @gray-lighter;
-	padding: 20px;
+// footer =============================================================
+
+#footer {
+	margin: 0 auto;
+	width: @article-width;
+	height: 60px;
+	padding: 10px 0;
+	border-top: 1px solid @fontColor;
 }

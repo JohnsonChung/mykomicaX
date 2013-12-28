@@ -26,13 +26,21 @@
 // -------------------------
 // Based on 14px font-size and 20px line-height
 
+@fontSizeLargest:       @baseFontSize * 1.75;
 @fontSizeLarge:         @baseFontSize * 1.25; // ~18px
 @fontSizeSmall:         @baseFontSize * 0.85; // ~12px
 @fontSizeMini:          @baseFontSize * 0.75; // ~11px
 
-@paddingLarge:          11px 20px; // 44px
+@lineheightLargest:       @baseFontSize * 1.75 + 15px ;
+@lineheightLarge:         @baseFontSize * 1.25 + 10px ; // ~18px
+@lineheightSmall:         @baseFontSize * 0.85 + 6px; // ~12px
+@lineheightMini:          @baseFontSize * 0.75 + 3px; // ~11px
+
+@paddingLarge:          14px 20px; // message
 @paddingSmall:          2px 10px;  // 26px
-@paddingMini:           0 6px;   // 12px
+@paddingNormal: 		5px 7px; // title
+@paddingMini:           3px 5px; // label
+
 
 @baseBorderRadius:      4px;
 @borderRadiusLarge:     6px;
