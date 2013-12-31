@@ -40,7 +40,7 @@ input {
 	position: relative;
 	margin: 0 auto;	
 
-	height: @lineHeight * 4;
+	height: @lineHeight * 3;
 	.formWidth(2.5, @padding-horizontal);
 		
 	.border(@gray-lighter);
@@ -56,6 +56,13 @@ input {
 	overflow-y: auto;
 	overflow-x: hidden;
 
+}	
+// fake placeholder by css before attribute
+div.textarea[data-placeholder]:not(:focus):not([data-div-placeholder-content]):before {
+    content: attr(data-placeholder);
+    float: left;
+    margin-left: 2px;
+    color: @gray-light;	
 }
 .textarea, 
 input {	
@@ -67,7 +74,7 @@ input {
 	outline: none;
 
 	&:focus {
-		.box-shadow(~"0 0 3px 3px rgba(0,0,0,0.1) inset");
+		.box-shadow(~"0 0 3px 2px rgba(0,0,0,0.1) inset");
 		background-color: @white;
 	}
 }
@@ -83,77 +90,69 @@ input {
 	right: 0; top: 0; left: 0;
 }
 .fluid-post-form {
-	position: fixed;
-	width: 100%;
-	right: 0; top: 0; left: 0;
+	position: relative;
+	right: 0; top: 0;
 	.transition(~"0.2s ease-out");
 	.transition-property( top );
 	
 	// 進場動畫
-	&.active {
-		top: 32px;
+	&.active {		
+		position: fixed;
+		top: 32px; right: 0px;
+		display: table;		
+
+		.post-form {
+			margin-right: 10px;
+			padding: 10px 10px;
+			border-radius: 5px;
+			background-color: @white;	
+			.box-shadow(~"0 5px 35px rgba(0,0,0,0.10)");
+
+			input, #form-head  {
+				display: inline-block;
+			}		
+		}
 	}
 	// 配合js 往下捲動後會靠右，可以邊看文邊回應。
-	&.right {
+	&.fluid {
 		.post-form {
 			margin-right: 10px;
 		}
 	}	
 	// 收折成一個小小的發文框
 	&.close {
-
+		.post-form {
+			input, #form-head  {
+				display: none;
+			}			
+		}
 	}
 }
 .post-form {
 	position: relative;
+	padding: @paddingLarge;
 	display: table;
-	margin: 0 auto;
-	padding: 10px 10px;
-	border-radius: 5px;
-	background-color: @white;
-	.box-shadow(~"0 5px 10px rgba(0,0,0,0.15)");
 	
 	// !! 還沒想到固定在中間移動到靠右邊的方法 因為 margin 沒有辦法用 transition !!
 	@lineheight: 22px;
-	.transition(~"0.5s linear");
-	.transition-property( height );
+	.transition(~"0.25s linear");
+	.transition-property( height, background-color, box-shadow);
 
 	.btn-group,
 	.attach-group {
 		display: table;
 		margin: 0 auto;
 	}
-	@tra-height: 18px;
-	@tra-width: 13px; 
-	&:before {
-		content: '';
-		position: absolute;
-		border: solid @messageColor;		
-		border-right: solid transparent;
-		border-left:  solid transparent;
-		border-width: @tra-width @tra-height 0 0px;
-		top: 0px;
-		left: -3px;
-	}
-	&:after {
-		content: '';
-		position: absolute;
-		border: solid @messageColor;		
-		border-right: solid transparent;
-		border-left:  solid transparent;
-		border-width: @tra-width 0px 0 @tra-height;
-		top: 0px;
-		right: -3px;
-	}
 
 	// 表頭
 	#form-head {
+		padding: 5px 0px;
 
 		#user-id {
-			position: relative;
-			padding: 5px 0;				
-			font-weight: normal;			
 
+			&.hidden {
+				display: none;
+			}
 			.id-first-letter {
 				font-weight: bold;
 			}

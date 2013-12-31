@@ -32,20 +32,18 @@
                 <li>取消</li>
             </ul>
         </div>
-        <div class="fluid-post-form">
+        <div class="fluid-post-form close">
             <div class="post-form">                    
                 <!-- 表頭列 -->
            		<div id="form-head">
-                    <div id="user-id"><span class="id-first-letter">N</span>BXwrHak<span>(第一組ID)</span></div>
+           			<ul class="inline-group">
+           				<li><div id="btn-toggle-id"><a>顯示現在的ID</a></div></li>
+           				<li><div id="user-id" class="hidden"><span class="id-first-letter">N</span>BXwrHak<span></span></div></li>
+           			</ul>
                 </div>
-                <!--　本文列 -->            
+                <!--　本文列 -->
                 <div id="form-textarea">
-                    <div contentEditable class="textarea" >
-                        <span class="id-label"></span>
-                        欸欸！<br>
-                        你們有沒有吃過巴吉魯？<br>
-                        為什麼只有花蓮有在煮這個？<br>
-                        因為我們比較落後嗎？<br>
+                    <div contenteditable='true' class="textarea editable" data-placeholder='分享些什麼吧 (・∀・)'>
                     </div>
                     <!-- 發文者資訊-->            
                     <input type="text"  id="input-title" placeholder="無標題">
@@ -57,13 +55,14 @@
                 <!-- 控制列 -->
                 <div class="action-group" id="post-action">
                     <ul class="inline-group pull-left">
-                        <li><a class="btn btn-primary"><span class="glyphicon glyphicon-picture"></span> 上傳圖片</a></li>
-                        <li><a class="btn"><span class="glyphicon glyphicon-link"> 連結</span></a></li>
+                        <li><a class="btn"><span class="glyphicon glyphicon-picture"></span>上傳圖片</a></li>
+                        <li><a class="btn"><span class="glyphicon glyphicon-link"></span>連結</a></li>
+                        <li><a class="btn"><span class="glyphicon glyphicon-facetime-video"></span>影片</a></li>
                     </ul>
                     <!-- 發布按鈕 -->
                     <ul class="inline-group pull-right">
-                        <li><button tpye="submit" class="btn btn-submit">Submit</button></li>
-                        <li><a class="btn btn-default"> x </a></li>
+                        <li><button tpye="submit" class="btn btn-primary btn-submit">發文</button></li>
+                        <li><a class="btn">取消</a></li>
                     </ul>
                     </div>
                 </div>

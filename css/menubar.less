@@ -18,9 +18,16 @@
 .menu-bar {	
 	width: 100%;
 	background-color: @messageColor;
+	height: 34px;
 	.user-select-none;
 	.clearfix;
+	.transition(~"0.25s ease-out");
+	.transition-property( height );
 
+	&.close {
+		height: 0;
+		overflow: hidden;
+	}
     div.bar-name {
     	float: left;
 		padding: 7px 20px;

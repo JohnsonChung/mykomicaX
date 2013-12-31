@@ -36,9 +36,9 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #428bca;
+@brand-primary:         #6BA7E2;
 @brand-success:         #5cb85c;
-@brand-warning:         #f0ad4e;
+@brand-warning:         #F1AE54;
 @brand-danger:          #d9534f;
 @brand-info:            #5bc0de;
 
@@ -46,7 +46,7 @@
 // -------------------------
 
 @btn-default-color:              #fff;
-@btn-default-bg:                 #474949;
+@btn-default-bg:                 #787878;
 @btn-default-border:             @btn-default-bg;
 
 @btn-primary-color:              @btn-default-color;
@@ -121,12 +121,17 @@
   border-color: @border;
 
   &:hover,
-  &:focus,
-  &:active,
-  &.active {
-    background-color: darken(@background, 5%);
+  &:focus {
+    background-color: darken(@background, 3%);
         border-color: darken(@border, 10%);
                color: @color;
+  }
+
+  &:active,
+  &.active {
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+               color: @color;    
   }
 
   &.disabled,
@@ -152,14 +157,18 @@
   display: inline-block;
   padding: @padding-base-vertical @padding-base-horizontal;
   margin-bottom: 0; // For input.btn
+
+  color: @gray-light;
   font-size: @font-size-base;
   font-weight: 500;
   line-height: @line-height-base;
   text-align: center;
   vertical-align: middle;
+
   cursor: pointer;
+  background-color: @gray-lightest;
   border: 1px solid transparent;
-  border-radius: @border-radius-base;
+  border-radius: @border-radius-small;
   white-space: nowrap;
   .user-select(none);
 
@@ -216,9 +225,17 @@
 .btn-info {
   .btn-pseudo-states(@btn-info-color, @btn-info-bg, @btn-info-border);
 }
+
+// Custom State
+// -------------------------
+
 // komica Custom State @color, @background, @border
 .btn-manage {
   .btn-pseudo-states(@fontColor, @white , @gray-lighter);
+}
+.btn-submit {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 .btn-menu {
   padding: 5px 3px;

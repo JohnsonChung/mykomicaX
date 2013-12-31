@@ -106,10 +106,10 @@
         positionTop = $(document).scrollTop();
         var power = false;
         if ( positionTop > 45 && power === false) {
-            $('.fluid-post-form').addClass('right');
+            $('.fluid-post-form').addClass('fluid');
             power = true;
         } else {
-            $('.fluid-post-form').removeClass('right');
+            $('.fluid-post-form').removeClass('fluid');
             power = false;
         }
     };
@@ -117,16 +117,47 @@
         scrollStartTrigger();
     });
     $(document).ready( function(){
-        $('.fluid-post-form').addClass('active');
-    })
-    
+        var menubar = $('.menu-bar');
+
+        // 隱藏ID開關
+        $('#btn-toggle-id').click( function(){
+            $('#btn-toggle-id').css('display', 'none');
+            $('#user-id').toggleClass('hidden');
+        });
+        // .menu-bar 收折 textarea 漂浮
+        $('.btn-submit').click( function(){
+            if( $(menubar).hasClass('close') ) {
+                $('.fluid-post-form').toggleClass('active close');
+                $(menubar).removeClass('close');
+            } else {
+                $('.fluid-post-form').toggleClass('active close');
+                $(menubar).addClass('close');
+            }
+        });
+        $(".textarea").focus( function() {
+            if( $(menubar).hasClass('close') ) {
+                $(menubar).removeClass('close');
+            }
+        });
+        $(".textarea").blur( function() {
+            $(menubar).addClass('close');
+        });
+    })    
+
+    // Content Editable
+    $(document).on('change keydown keypress input', 'div[data-placeholder]', function() {
+        if (this.textContent) {
+            this.dataset.divPlaceholderContent = 'true';
+        }
+        else {
+            delete(this.dataset.divPlaceholderContent);
+        }
+    });
+    document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
+        e.preventDefault();
+        var text = e.clipboardData.getData("text");
+        document.execCommand("insertText", false, text);
+    });
 
 }(window.jQuery);
-
-// Content Editable
-document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
-    e.preventDefault();
-    var text = e.clipboardData.getData("text");
-    document.execCommand("insertText", false, text);
-});
 

@@ -13,13 +13,22 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/combine.less" type="text/less">
         <link rel="stylesheet" href="css/article.less" type="text/less">   
-        <link rel="stylesheet" href="css/banch.less" type="text/less">      
+        <link rel="stylesheet" href="css/form-post.less" type="text/less">   
+        <link rel="stylesheet" href="css/banch.less" type="text/less"> 
 
         <script src="js/vendor/jquery-1.9.1.js"></script>
         <script src="js/libs/less-1.4.1.min.js"></script>
         <script src="js/bench-javascript.js"></script>
+        <script src="js/plugins.js"></script>
     </head>
-    <body> 
+    <body>
+        <div class="menu-bar menu-replymode close">
+            <div class="bar-name">發文模式</div>
+            <ul class="control-group inline-group pull-right">
+                <li>暫存</li>
+                <li>取消</li>
+            </ul>
+        </div>
         <div class="top-link">
             <ul class="link-group inline-group">
                 <li>
@@ -55,7 +64,9 @@
             </ul>
         </div>
         <div class="header">
-            <div class="board-brand"><img class="brand" src="img/template-brand.png" alt=""></div>
+            <div class="board-brand">
+                <img class="brand" src="img/template-brand.png" alt="">
+            </div>
             <div class="board-info">                    
                 <div class="board-name">艦隊これくしょん /  艦娘蒐集專版</div>
                 <div class="board-intro">『艦隊これくしょん -艦これ-』は、DMM.comと角川ゲームスが共同開発した、新しいタイプのソーシャルゲームです。旧日本軍の駆逐艦や軽巡洋艦、重巡洋艦を擬人化した「艦娘（かんむす）」で、艦隊を編成、育成、強化しながら、無敵の連合艦隊を目指す育成シミュレーションゲームです。 <a> full view...</a></div>
@@ -68,8 +79,65 @@
                     </ul>
                 </div>
             </div>
-            <div class="post-form">
-                <textarea name="" id="" cols="50" rows="4" placeholder="發表廢文(・∀・)<..."></textarea>
+            <div class="fluid-post-form close">
+                <div class="post-form">
+                    <!-- 表頭列 -->            
+                    <div id="form-head">
+                        <ul class="inline-group">
+                            <li>
+                                <div id="btn-toggle-id">
+                                    <a>顯示現在的ID</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div id="user-id" class="hidden">
+                                    <span class="id-first-letter">N</span><!-- 
+                                     -->BXwrHak
+                                    <span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--　本文列 -->            
+                    <div id="form-textarea">
+                        <div contenteditable='true' class="textarea editable" data-placeholder='分享些什麼吧 (・∀・)'></div>
+                        <!-- 發文者資訊-->            
+                        <input type="text"  id="input-title" placeholder="無標題">            
+                        <input type="text" id="input-name" placeholder="無名">
+                    </div>
+
+                    <!-- 附件列 -->            
+
+                    <!-- 控制列 -->            
+                    <div class="action-group" id="post-action">
+                        <ul class="inline-group pull-left">
+                            <li>
+                                <a class="btn">
+                                    <span class="glyphicon glyphicon-picture"></span>&nbsp;上傳圖片
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn">
+                                    <span class="glyphicon glyphicon-link"></span>&nbsp;連結
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn">
+                                    <span class="glyphicon glyphicon-facetime-video"></span>&nbsp;影片
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 發布按鈕 -->            
+                        <ul class="inline-group pull-right">
+                            <li>
+                                <button tpye="submit" class="btn btn-primary btn-submit">發文</button>
+                            </li>
+                            <li>
+                                <a class="btn">取消</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
