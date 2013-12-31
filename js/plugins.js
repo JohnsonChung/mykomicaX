@@ -106,10 +106,10 @@
         positionTop = $(document).scrollTop();
         var power = false;
         if ( positionTop > 45 && power === false) {
-            $('.fluid-post-form').addClass('fluid');
+            $('.fluid-post-form').addClass('active');
             power = true;
         } else {
-            $('.fluid-post-form').removeClass('fluid');
+            $('.fluid-post-form').removeClass('active');
             power = false;
         }
     };
@@ -124,7 +124,11 @@
             $('#btn-toggle-id').css('display', 'none');
             $('#user-id').toggleClass('hidden');
         });
-        // .menu-bar 收折 textarea 漂浮
+        // .menu-bar 收折 textarea 漂浮 @@@ <---未完成
+        // NOTE  --->> 發文模式[active] --> 判斷SCROLL[fluid] 
+        //       --->> 發文模式[unactive] --> 不判斷SCROLL
+        //       --->> Focus --> 開啟發文模式 --> Blur --> 沒有fluid 關閉發文模式
+        //                                            --> 有fluid 維持原狀
         $('.btn-submit').click( function(){
             if( $(menubar).hasClass('close') ) {
                 $('.fluid-post-form').toggleClass('active close');
@@ -140,7 +144,9 @@
             }
         });
         $(".textarea").blur( function() {
-            $(menubar).addClass('close');
+            if( $(menubar).hasClass('close') ) {
+                $(menubar).addClass('close');
+            }
         });
     })    
 
