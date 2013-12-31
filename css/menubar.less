@@ -19,14 +19,24 @@
 	width: 100%;
 	background-color: @messageColor;
 	.user-select-none;
+	.clearfix;
 
+    div.bar-name {
+    	float: left;
+		padding: 7px 20px;
+		
+		font-weight: bold;
+
+		cursor: default;
+    }
+	
 	ul.control-group {
 		padding: 0 10px;
-		.clearfix;
 
-		li {
-			padding: 7px 0;
+		li {		
+			padding: 7px 5px;
 			font-size: 12px;
+			cursor: pointer;
 		}
 	}
 }

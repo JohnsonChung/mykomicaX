@@ -13,33 +13,37 @@
 @import "buttons.less";
 @import "menubar.less";
 
-// utility
 
-// Form
+// variable
+// ================================
+@padding-vertical: 5px;
+@padding-horizontal: 5px;
+
+@formWidth: 200px - 20px;
+
+// basicForm 基本的表單樣式
 // ================================
 
-
-// basicForm
-// ================================
+//將 form 的 寬度 分成不同的格數， 一格 180 px
 .formWidth( @level: 1, @padding: 0){
-	width: (200px - 20px) * @level - ( @padding * 2); 
+	width: ( @formWidth ) * @level - ( @padding * 2); 
+	padding: @padding-vertical @padding-horizontal;
+	margin-bottom: 5px;
 }
 
+input {
+	border: 1px solid @gray-lighter;
+}
 .textarea {
 	@lineHeight: 24px;
-	@padding-vertical: 10px;
-	@padding-horizontal: 10px;
 	
 	position: relative;
 	margin: 0 auto;	
-	padding: @padding-vertical @padding-horizontal;
 
-	height: @lineHeight * 7;
-	.formWidth(3, @padding-horizontal);
-	
-	background-color: @white;
-	outline: 0;
-	.border(@gray-light);
+	height: @lineHeight * 4;
+	.formWidth(2.5, @padding-horizontal);
+		
+	.border(@gray-lighter);
 
 	color: @fontColor;
 	font-size: 16px;
@@ -51,26 +55,48 @@
 
 	overflow-y: auto;
 	overflow-x: hidden;
+
+}
+.textarea, 
+input {	
+	.box-shadow(~"0 0 3px rgba(0,0,0,0.1) inset");
+	.transition(~"box-shadow 0.2s ease-out");
+	.transition-property(~"background-color");
+	border-radius: 5px;
+	background-color: #fafafa;
+	outline: none;
+
+	&:focus {
+		.box-shadow(~"0 0 3px 3px rgba(0,0,0,0.1) inset");
+		background-color: @white;
+	}
 }
 
 
 
 // PostForm
 // ================================
-#postFormCon {
+.menu-bar.menu-replymode {	
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	right: 0; top: 0; left: 0;
+}
+.fluid-post-form {
+	position: fixed;
+	width: 100%;
+	right: 0; top: 0; left: 0;
+	.transition(~"0.2s ease-out");
+	.transition-property( top );
+	
+	// 進場動畫
+	&.active {
+		top: 32px;
+	}
 	// 配合js 往下捲動後會靠右，可以邊看文邊回應。
 	&.right {
-		position: fixed;
-		width: 100%;
-		right: 0; top: 0;
-
-		#postForm {
-			position: absolute;
-			right: 0;
-		}
-		.menu-bar {
-			display: block;
-			width: 100%;
+		.post-form {
+			margin-right: 10px;
 		}
 	}	
 	// 收折成一個小小的發文框
@@ -78,122 +104,74 @@
 
 	}
 }
-#postForm {
+.post-form {
+	position: relative;
+	display: table;
+	margin: 0 auto;
+	padding: 10px 10px;
+	border-radius: 5px;
+	background-color: @white;
+	.box-shadow(~"0 5px 10px rgba(0,0,0,0.15)");
+	
+	// !! 還沒想到固定在中間移動到靠右邊的方法 因為 margin 沒有辦法用 transition !!
 	@lineheight: 22px;
 	.transition(~"0.5s linear");
-	.transition-property( position, float );
+	.transition-property( height );
 
-	// 讓寬度階梯化
-	#formTitleCon,
-	#contentFormCon,
-	#attachTypeCon,
-	#controlCon  {
-		margin: 0 auto;
-		width: 600px;
-		text-align: center;
-	}
 	.btn-group,
 	.attach-group {
 		display: table;
 		margin: 0 auto;
 	}
-	.container {
-		margin: 0 auto;		
-		background-color: @messageColor;
-		padding-bottom: 6px;
+	@tra-height: 18px;
+	@tra-width: 13px; 
+	&:before {
+		content: '';
+		position: absolute;
+		border: solid @messageColor;		
+		border-right: solid transparent;
+		border-left:  solid transparent;
+		border-width: @tra-width @tra-height 0 0px;
+		top: 0px;
+		left: -3px;
 	}
+	&:after {
+		content: '';
+		position: absolute;
+		border: solid @messageColor;		
+		border-right: solid transparent;
+		border-left:  solid transparent;
+		border-width: @tra-width 0px 0 @tra-height;
+		top: 0px;
+		right: -3px;
+	}
+
 	// 表頭
-	#formTitleCon {
+	#form-head {
 
 		#user-id {
 			position: relative;
-			.size(auto, 35px);
-			text-align: left;
-			margin-left: 30px;
-			line-height: 35px;
-			vertical-align: middle;
-			font-size: 18px;
+			padding: 5px 0;				
 			font-weight: normal;			
-			color: fade( @fontColor, 30% );
 
 			.id-first-letter {
-				position: absolute;
-				left: -23px;				
-				.rotate(-15deg);
-				font-size: 28px;
 				font-weight: bold;
-				color: fade( @fontColor, 60% );
 			}
 		}
 	}
+
 	// 本文輸入
-	#contentFormCon {
+	#form-textarea {
 		// 前後綴的屬性的命名方式和順序要思考一下 
 		// form 是 區域 位置 用途 之類的...
 		// textarea 是 dom 主類別
 		position: relative;
 
 		input#input-name {
-			.formWidth(1);
+			.formWidth(1, 10px);
 		}
 		input#input-title {
-			.formWidth(2);
+			.formWidth(1.5, 3px);
 		}
-
-		&:after {
-			content: "";
-			display: block;
-			position: absolute;
-			z-index: 2;
-			left: 43px; top: -8px;
-			width: 0;
-			border-width: 0px 9px 9px 9px;
-			border-style: solid;
-			border-color: @gray-light transparent;              
-		}
-		&:before {
-			content: "";
-			display: block;
-			position: absolute;
-			z-index: 3;
-			left: 45px; top: -7px;
-			width: 0;
-			border-width: 0px 7px 8px 7px;
-			border-style: solid;
-			border-color: @white transparent;              
-		}
-	}
-	// 附件檔案
-	#attachTypeCon {
-
-		.attach-group {
-			height: 300px;
-			background-color: @gray-light;
-			.formWidth(3);
-		}
-		li {
-			a {
-				display: block;
-				font-size: @fontSizeMini;
-				color: @fontColor;
-				float: left;
-				text-decoration: none;
-				.size(70px, 40px);
-				.border;
-
-				span.glyphicon {
-					display: block;
-					font-size: 25px;
-				}
-			}
-		}
-	}
-	// 控制區
-	#controlCon {
-		.clearfix;
-		.btn {
-			
-		}
-	}
-	
+	}	
 }

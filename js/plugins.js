@@ -101,21 +101,24 @@
         });
     });
 
-    // 捲動開關
+    // _form_post.html 捲動開關
     function scrollStartTrigger() {
         positionTop = $(document).scrollTop();
         var power = false;
         if ( positionTop > 45 && power === false) {
-            $('#postFormCon').addClass('right');
+            $('.fluid-post-form').addClass('right');
             power = true;
         } else {
-            $('#postFormCon').removeClass('right');
+            $('.fluid-post-form').removeClass('right');
             power = false;
         }
     };
     $(window).scroll( function(){
         scrollStartTrigger();
     });
+    $(document).ready( function(){
+        $('.fluid-post-form').addClass('active');
+    })
     
 
 }(window.jQuery);
