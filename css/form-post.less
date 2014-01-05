@@ -97,7 +97,7 @@ input {
 	.transition(~"0.2s ease-out");
 	.transition-property( top );
 	
-	// 進場動畫
+	// 進場動畫 浮動
 	&.active {		
 		position: fixed;
 		top: 32px; right: 0px;
@@ -106,7 +106,9 @@ input {
 		.post-form {
 			margin-right: 10px;
 			padding: 10px 10px;
-			border-radius: 5px;
+			.border-radius(5px);
+			.border-top-left-radius(0px);
+			.border-top-right-radius(0px);
 			background-color: @white;	
 			.box-shadow(~"0 5px 35px rgba(0,0,0,0.10)");
 

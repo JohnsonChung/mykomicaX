@@ -134,16 +134,7 @@
 
 		.info-attach {
 			float: left;
-
-			label.label-jpg {
-				margin: 0 5px 0 0;
-				padding: @paddingMini;
-				background-color: @green;
-
-				color: white;
-				font-size: 12px !important;
-				line-height: 12px;
-			}
+			
 			span {
 				margin-right: 3px;
 			}
@@ -206,4 +197,29 @@
 	height: 60px;
 	padding: 10px 0;
 	border-top: 1px solid @fontColor;
+}
+
+// label 
+label.label {
+	margin: 0 5px 0 0;
+	padding: @paddingMini;
+
+	color: white;
+	font-size: 12px !important;
+	line-height: 12px;
+}
+.label-jpg {
+	background-color: @green;
+}
+.label-png {	
+	background-color: #9F66B3;
+}
+.label-bmp {
+	background-color: #266CD5;
+}
+.label-gif {
+	background-color: #EC8D00;
+}
+.label-video {
+	background-color: #BD0000;
 }
