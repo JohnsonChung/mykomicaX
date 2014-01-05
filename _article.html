@@ -25,24 +25,24 @@
     </head>
     <body>        
         <script id="template" type="text/x-handlebars-template">
-            <div class="messages">                    
+             <div class="messages">                    
                 {{#each comments}}
                 <div class="messageCon">
                     <div class="message-control"> 
                         <ul class="control-group">
                             <li class="check"><span class="glyphicon-stop glyphicon"></span></li>
                             <li class="lineblock"></li>
-                            <li class="flag"><span class="glyphicon-flag glyphicon"></span></li>
-                            <li class="edit"><span class="glyphicon-pencil glyphicon"></span></li>
+                            <li class="flag" title="檢舉"><span class="glyphicon-flag glyphicon"></span></li>
+                            <li class="edit" title="編輯"><span class="glyphicon-pencil glyphicon"></span></li>
                         </ul>
                     </div>
                     <div class="message-manage"> 
-                        <ul class="manage-group">
+                        <ul class="manage-group inline-group">
                             <li>
-                                <span class="ip">{{IP}}</span>
+                                <span class="manage-ip">{{IP}}</span>
                             </li>
-                            <li><span class="glyphicon-magnet glyphicon"></span></li>
-                            <li><span class="glyphicon-filter glyphicon"></span></li>
+                            <li><a class="btn btn-mini">尋找 <span class="glyphicon-magnet glyphicon"></span></a></li>
+                            <li><a class="btn btn-mini">過濾 <span class="glyphicon-filter glyphicon"></span></a></li>
                         </ul>
                     </div>
                     <div class="message">
@@ -83,7 +83,9 @@
                 {{/each}}
             </div>
         </script>  
-
-        <div class="box"></div>
+		
+		<div class="box" style="width:960px; margin: 0 auto;">
+        	<div class="msgCon"> </div>
+        </div>
     </body>
 </html>

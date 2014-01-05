@@ -1,0 +1,34 @@
+// Anchor pseudo states
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all anchors
+
+.anchor-pseudo-states (@color:@blue, @decoration:underline) {
+  color: @color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {    
+    color: @color;
+    text-decoration: @decoration;
+  }
+
+  &:active,
+  &.active {
+    color: @color;    
+    text-decoration: @decoration;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+   		color: @color;
+   		text-decoration: none;
+    }
+  }
+}
