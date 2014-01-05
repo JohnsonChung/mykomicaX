@@ -28,12 +28,12 @@
 }
 .push {
 	padding: 0px 5px;
-	border: 1px solid @gray-lighter;
-	border-width: 1px 0;
+	border: 1px solid @gray-lightest;
+	border-width: 1px 0 0 0;
 	margin: 0 10px;
 	max-width: 500px;
 	line-height: 25px;
-	font-size: @fontSizeMini;
+	font-size: 15px;
 	.clearfix;
 
 	.face, 
@@ -101,6 +101,9 @@
 			height: 100%;		
 			border-left: 5px solid @blue;
 		}
+	}
+	&:first-child {
+		border-width: 0 0 0 0;
 	}
 }
 

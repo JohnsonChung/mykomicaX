@@ -44,7 +44,7 @@ var context = {
     NAME: "ㄈㄓZ",
     ID: "mNl5J2kP",
     POSTTIME: "2013/07/04",
-    CONTENT: '<span class="quote">>>no.1235678</span>李嫌和王女原本約在高鐵台南站見面，因鄰居發現王母失蹤',
+    CONTENT: '<span class="quote">>>no.1235678</span>李嫌和王女原本約在高鐵台南站見面李嫌和王女原本約在高鐵台南站見面，因鄰居發現王母失蹤',
     imgNo: "02",
     imgSize: "",
     REPLYCOUNT: "432",
@@ -318,5 +318,5 @@ var html    = template(context);
 //目前用最單純的 append 將 html 合併的結果塞到 .box 裡面
 //還沒有參考別人的作法，應該有比較好的使用方式才對
 //再來就先把html和css完成再來處理handlebars
-$(".box").append(html);
+$(".msgCon").append(html);
 });

@@ -41,263 +41,261 @@
 
 // 本文部分
 // ================================
-div.articleCon {
-	position: relative;
-	width: 880px;
-	margin: 0 auto;
-	padding: 0 40px;
-}
-div.headline {}
-div.article {	
-	line-height: 24px;
-	font-size: 15px;
+// div.articleCon {
+// 	position: relative;
+// 	width: 880px;
+// 	margin: 0 auto;
+// 	padding: 0 40px;
+// }
+// div.headline {}
+// div.article {	
+// 	line-height: 24px;
+// 	font-size: 15px;
 
-	// 本文的 相關資訊 如：日期、ID、名稱等
-	.article-head {
-		position: relative;
-		border-bottom: 1px solid @fontColor;
-		.clearfix;
+// 	// 本文的 相關資訊 如：日期、ID、名稱等
+// 	.article-head {
+// 		position: relative;
+// 		border-bottom: 1px solid @fontColor;
+// 		.clearfix;
 
-		div.attach-info{
-			float: left;
-		}
-		div.article-info {
-				float: right;
-			span.id {
-			}
-			a.no {
-			}
-		}
-		// 暫定class 用來放置用戶回應、推文的地方 
-		// 一個概念說 放置給使用者 主要行為的容器
-		// 狀態： unactive, active, hover, other
-        .article-action { 
-        	position: absolute;
-        	right: -50px; top: 24px;
+// 		div.attach-info{
+// 			float: left;
+// 		}
+// 		div.article-info {
+// 				float: right;
+// 			span.id {
+// 			}
+// 			a.no {
+// 			}
+// 		}
+// 		// 暫定class 用來放置用戶回應、推文的地方 
+// 		// 一個概念說 放置給使用者 主要行為的容器
+// 		// 狀態： unactive, active, hover, other
+//         .article-action { 
+//         	position: absolute;
+//         	right: -50px; top: 24px;
 
-            a.reply-btn, 
-            a.push-btn,
-            a.link-btn { 
-	            display: block;  
-    			margin: 0 auto 5px auto;
-	            padding: 3px 5px;	
-	            width: 40px;
-	            cursor: pointer;
-	            text-align: center;
-	            font-size: 12px;
-	            line-height: 14px;
-	            .transition(~"0.3s linear");
-	            .transition-property(opacity);
-				.user-select-none;
-        	}
-        	a.push-btn,
-        	a.link-btn {
-        		color: @gray-light;
-        		.opacity(0.4);
+//             a.reply-btn, 
+//             a.push-btn,
+//             a.link-btn { 
+// 	            display: block;  
+//     			margin: 0 auto 5px auto;
+// 	            padding: 3px 5px;	
+// 	            width: 40px;
+// 	            cursor: pointer;
+// 	            text-align: center;
+// 	            font-size: 12px;
+// 	            line-height: 14px;
+// 	            .transition(~"0.3s linear");
+// 	            .transition-property(opacity);
+// 				.user-select-none;
+//         	}
+//         	a.push-btn,
+//         	a.link-btn {
+//         		color: @gray-light;
+//         		.opacity(0.4);
 
-    			&:active {
-					color: @red;
-    			}
-        	}
-        	a.reply-btn {
-				color: @white !important;
-				background-color: @blue;  
-	            text-decoration: none;
+//     			&:active {
+// 					color: @red;
+//     			}
+//         	}
+//         	a.reply-btn {
+// 				color: @white !important;
+// 				background-color: @blue;  
+// 	            text-decoration: none;
 
-				// 了解一下bt 怎麼處理這種按鈕重複的觸發樣式
-    			&:hover {    
-    				background-color: lighten(@blue, 10%);
-    			}
-    			&:active {
-					background-color: darken(@blue, 3%);
-    			}
-        	}
-        	a.push-btn {}
-        	ul.action-group {
-        		li.action {		
-        		}
-        	}
-        }   
-        a.reply-btn {}
-        a.push-btn {}
-	}
+// 				// 了解一下bt 怎麼處理這種按鈕重複的觸發樣式
+//     			&:hover {    
+//     				background-color: lighten(@blue, 10%);
+//     			}
+//     			&:active {
+// 					background-color: darken(@blue, 3%);
+//     			}
+//         	}
+//         	a.push-btn {}
+//         	ul.action-group {
+//         		li.action {		
+//         		}
+//         	}
+//         }   
+//         a.reply-btn {}
+//         a.push-btn {}
+// 	}
 
-	// 本文的 主要部分 附件 + 內文(主題+文章)
-	.article-body {
-		position: relative;
+// 	// 本文的 主要部分 附件 + 內文(主題+文章)
+// 	.article-body {
+// 		position: relative;
 
-		.attachCon {
-			float: left;
-			margin: 0 20px 5px 0;
+// 		.attachCon {
+// 			float: left;
+// 			margin: 0 20px 5px 0;
 
-			.attach {
-				// clear image inline-block problem
-				font-size: 0;
-				line-height: 0;
-			}
-		}
-		.article-title {
+// 			.attach {
+// 				// clear image inline-block problem
+// 				font-size: 0;
+// 				line-height: 0;
+// 			}
+// 		}
+// 		.article-title {
 
-			div.title {	
-				display: inline-block;
-				margin: 0px 0 0px 0;
-				padding: 7px 0 0 0;
-				max-width: 480px;
-				font-size: 18px;
-				line-height: 25px;		
-				font-weight: bold;
-			}
-			div.article-info{
-				display: table;
-				padding: 0px 0px;				
-				color: @gray-light;
+// 			div.title {	
+// 				display: inline-block;
+// 				margin: 0px 0 0px 0;
+// 				padding: 7px 0 0 0;
+// 				max-width: 480px;
+// 				font-size: 18px;
+// 				line-height: 25px;		
+// 				font-weight: bold;
+// 			}
+// 			div.article-info{
+// 				display: table;
+// 				padding: 0px 0px;				
+// 				color: @gray-light;
 
-				span.id {}	
-				span.date {}
-				span.time {}
-			}
-		}
-		p.content {				
-			padding: 16px 0 25px 0;	
-			margin: 0 0 0 0;
-		}
-	}
+// 				span.id {}	
+// 				span.date {}
+// 				span.time {}
+// 			}
+// 		}
+// 		p.content {				
+// 			padding: 16px 0 25px 0;	
+// 			margin: 0 0 0 0;
+// 		}
+// 	}
 
-	// 本文的 尾端 放置評分按鈕、其他
-	.article-footer {}
+// 	// 本文的 尾端 放置評分按鈕、其他
+// 	.article-footer {}
 
-}
-// 本文控制
-.article-control {
-	position: absolute;
-	left: 0; top: 25px;
-	width: 40px;
-	height: 100%;
-	text-align: center;
-	color: @fontColor;
-	.user-select-none;
+// }
+// // 本文控制
+// .article-control {
+// 	position: absolute;
+// 	left: 0; top: 25px;
+// 	width: 40px;
+// 	height: 100%;
+// 	text-align: center;
+// 	color: @fontColor;
+// 	.user-select-none;
 
-	&:hover {
-		.check {
-			font-size: 20px !important;
-		}
-	}
-	ul.control-group {
-		text-align: center;
+// 	&:hover {
+// 		.check {
+// 			font-size: 20px !important;
+// 		}
+// 	}
+// 	ul.control-group {
+// 		text-align: center;
 
-		li {				
-			visibility: hidden;
-			display: inline-block;
-			padding: 0px 0;
-			width: 100%;
-			vertical-align: middle;
+// 		li {				
+// 			visibility: hidden;
+// 			display: inline-block;
+// 			padding: 0px 0;
+// 			width: 100%;
+// 			vertical-align: middle;
 
-			.glyphicon {
-			}
-		}
-		// 控制選項的部分 
-		// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
-		// 所以自己的文章可以給一個明顯的標示
-		li.check {
-			// 讓第一個 check box 不要隱藏
-			visibility: visible;
-			padding: 3px 0;
-			font-size: 10px;
-			.transition(~"font-size 0.1s linear");
+// 			.glyphicon {
+// 			}
+// 		}
+// 		// 控制選項的部分 
+// 		// 你不會檢舉自己 不會編輯別人 所以 flag 和 edit 不會同時出現
+// 		// 所以自己的文章可以給一個明顯的標示
+// 		li.check {
+// 			// 讓第一個 check box 不要隱藏
+// 			visibility: visible;
+// 			padding: 3px 0;
+// 			font-size: 10px;
+// 			.transition(~"font-size 0.1s linear");
 
-			&:hover {
-				font-size: 16px;
-			}
-		}
-		li.lineblock {
-			// 分隔線 可能會重複使用
-			border-top: 1px solid fade( white , 50%);
-			width: 50%;
-			padding: 0;
-			margin: 3px 0;
-			font-size: 0;
-			line-height: 0;
-			vertical-align: top;
-		}
-	}
-}
-// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
-.article-manage {
-	display: none;
-	line-height: 22px;
+// 			&:hover {
+// 				font-size: 16px;
+// 			}
+// 		}
+// 		li.lineblock {
+// 			// 分隔線 可能會重複使用
+// 			border-top: 1px solid fade( white , 50%);
+// 			width: 50%;
+// 			padding: 0;
+// 			margin: 3px 0;
+// 			font-size: 0;
+// 			line-height: 10px;
+// 			vertical-align: top;
+// 		}
+// 	}
+// }
+// // 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
+// .article-manage {
+// 	display: none;
+// 	line-height: 22px;
 
-	.manage-group {	
-		display: block;
-		padding: 0 10px;	
-		.clearfix;
+// 	.manage-group {	
+// 		display: block;
+// 		padding: 0 10px;	
+// 		.clearfix;
 
-		li {
-			display: inline;
+// 		li {
 
-			span {
-				display: inline;
-				text-align: center;
-				padding: 0 20px;
-				vertical-align: bottom;
-				&:hover {
-					background-color: fade( @white, 50% );
-				}
-			}
-		}
-	}
-}
+// 			span {
+// 				display: inline;
+// 				text-align: center;
+// 				padding: 0 20px;
+// 				&:hover {
+// 					background-color: fade( @white, 50% );
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 // 將滑鼠移到文章上面會啟動的東西
 // 必須放在預設值的下面
 // something interst!! , somthing active!!
 // ================================
-div.articleCon {
+// div.articleCon {
 	
-	// 滑鼠移到文章上的...!!
-	&:hover {
-		.article-action {
-        	a.push-btn,
-        	a.link-btn {
-        		color: @blue;
-        		.opacity(1);
-        	}
-        }	
-	}
-	// check!!...
-	&.selected {
-		border-width: 0 5px;
-		padding: 0 50px;
+// 	// 滑鼠移到文章上的...!!
+// 	&:hover {
+// 		.article-action {
+//         	a.push-btn,
+//         	a.link-btn {
+//         		color: @blue;
+//         		.opacity(1);
+//         	}
+//         }	
+// 	}
+// 	// check!!...
+// 	&.selected {
+// 		border-width: 0 5px;
+// 		padding: 0 50px;
 
-		.article-control {
-			width: 45px;
-			background-color: @blue;
-			color: @white;
-			font-size: 13px;
+// 		.article-control {
+// 			width: 45px;
+// 			background-color: @blue;
+// 			color: @white;
+// 			font-size: 13px;
+// 	 	   .transition(~"0.0s linear");
 			
-			li {	
-				visibility: visible !important;
+// 			li {	
+// 				visibility: visible !important;
 
-				&:hover {
-					.glyphicon {
-						color: @white;
-					}
-				}
-				&.check {
-					font-size: 16px !important;
-				}
-				.glyphicon {
-					color: fade( @white, 80% );
-				}
-			}				
-		}
-		.article-manage {
-			display: block;
-		}
-	}
-}
+// 				&:hover {
+// 					.glyphicon {
+// 						color: @white;
+// 					}
+// 				}
+// 				&.check {
+// 					font-size: 16px !important;
+// 				}
+// 				.glyphicon {
+// 					color: fade( @white, 80% );
+// 				}
+// 			}				
+// 		}
+// 		.article-manage {
+// 			display: block;
+// 		}
+// 	}
+// }
 // ================================
 // ================================
-
 
 // 回應部分
 // ================================
@@ -305,8 +303,7 @@ div.messages {}
 div.messageCon {
 	display: table;
 	position: relative;
-	padding-left: 40px;		
-	margin: 6px 0;		
+	margin: 6px 0;
 	.transition(~'0.1s linear');
 	.transition-property( margin, border, background-color);
 	
@@ -325,13 +322,14 @@ div.messageCon {
 	}
 	// 選取後的本文樣式, 籃框, 管理按鈕
 	&.selected {
-		border: 4px solid @blue;
+		border: 2px solid @blue;
 		background-color: @blue;
-		padding-left: 48px;
-		margin: 2px;
+		margin: 2px 0;
 
 		.message-control {
-			width: 45px;
+			width: 40px;
+			border: 2px solid @blue;
+			background-color: @blue;
 			
 			li {	
 				visibility: visible !important;
@@ -382,12 +380,15 @@ div.messageCon {
 	// ================================
 	.message-control {
 		position: absolute;
-		left: 0; top: 0;
+		left: -45px; top: -2px;
 		width: 40px;
 		height: 100%;
 		text-align: center;
 		color: @messageColor;
+
 		.user-select-none;
+		.transition(~'0.1s linear');
+		.transition-property( margin, border, background-color);
 
 		&:hover {
 			.check {
@@ -427,7 +428,7 @@ div.messageCon {
 				padding: 0;
 				margin: 3px 0;
 				font-size: 0;
-				line-height: 0;
+				line-height: 10px;
 				vertical-align: top;
 			}
 		}
@@ -435,7 +436,6 @@ div.messageCon {
 	// 給管理者看的資訊 有哪些資訊在選擇後出現 還有哪些是直接出現 需要研究一下
 	.message-manage {
 		display: none;
-		line-height: 22px;
 		color: @white;
 
 		.manage-group {	
@@ -444,17 +444,11 @@ div.messageCon {
 			.clearfix;
 
 			li {
-				display: inline;
+				margin: 0 0 2px 0;
+			}
 
-				span {
-					display: inline;
-					text-align: center;
-					padding: 0 20px;
-					vertical-align: bottom;
-					&:hover {
-						background-color: fade( @white, 50% );
-					}
-				}
+			.glyphicon {
+				font-size: 10px;	
 			}
 		}
 	}

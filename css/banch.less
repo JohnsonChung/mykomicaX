@@ -9,7 +9,9 @@
 @import "variable.less";
 @import "swatches.less";
 @import "color.less";
+@import "article.less";
 @import "forms.less";
+@import "form-post.less";
 @import "buttons.less";
 @import "menubar.less";
 
@@ -91,9 +93,10 @@
 	padding: 0 10px;
 	width: @article-width - 20px; // padding: 0 10;
 	.border(@gray-lightest, 0 1px);
+	.clearfix;
 }
 .action-group {		
-	display: inline-block;
+
 	width: 100%;
 	.clearfix;
 
@@ -160,7 +163,6 @@
 	margin-left: 10px;	
 	margin-bottom: 10px;
 	overflow: hidden;
-
 	background-color: #eee;
 
 	img {
@@ -195,6 +197,8 @@
 // footer =============================================================
 
 #footer {
+	display: block;
+	clear: both;
 	margin: 0 auto;
 	width: @article-width;
 	height: 60px;

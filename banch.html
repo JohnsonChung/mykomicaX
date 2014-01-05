@@ -11,17 +11,18 @@
         <meta name="viewport" content="width=device-width">
         
         <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/combine.less" type="text/less">
-        <link rel="stylesheet" href="css/article.less" type="text/less">   
-        <link rel="stylesheet" href="css/form-post.less" type="text/less">   
+        <link rel="stylesheet" href="css/combine.less" type="text/less">  
         <link rel="stylesheet" href="css/banch.less" type="text/less"> 
 
         <script src="js/vendor/jquery-1.9.1.js"></script>
-        <script src="js/libs/less-1.4.1.min.js"></script>
+        <script src="js/libs/less-1.6.0.min.js"></script>
+        <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+        <script id="handler" src="js/handler-reader.js"></script>
+
         <script src="js/bench-javascript.js"></script>
         <script src="js/plugins.js"></script>
     </head>
-    <body>
+    <body>        
         <div class="menu-bar menu-replymode close">
             <div class="bar-name">發文模式</div>
             <ul class="control-group inline-group pull-right">
@@ -29,6 +30,7 @@
                 <li>取消</li>
             </ul>
         </div>
+
         <div class="top-link">
             <ul class="link-group inline-group">
                 <li>
@@ -162,7 +164,7 @@
                 <a><img alt="" src="http://placehold.it/120x50/cccccc/ffffff.png" /></a>
             </div>
             <div class="msgCon">
-                <div class="msg msg-main">
+                <!-- <div class="msg msg-main">
                     第5艦隊に所属する軽巡1隻が、かなり高い練度(レベル)において、さらなる改装(改造)が可能になりました!　( ノﾟДﾟ)ﾖｯ!
                     ※同艦の追加ボイスは、今後実装を予定しています。
                     メンテナンスの完了後は接続状態が大変混雑する場合がございます。
@@ -190,7 +192,7 @@
                 </div>
                 <div class="msg">
 
-                </div>
+                </div> -->
             </div>
         </div>
         
@@ -200,6 +202,65 @@
             <div class="pull-left"><a>Komica</a> related FUtAba Board. ＼(^o^)／</div>
             <div class="pull-right">Powered by <a>mykomica.org</a></div>
         </div>
-
+        
+        <script id="template" type="text/x-handlebars-template">
+            <div class="messages">                    
+                {{#each comments}}
+                <div class="messageCon">
+                    <div class="message-control"> 
+                        <ul class="control-group">
+                            <li class="check"><span class="glyphicon-stop glyphicon"></span></li>
+                            <li class="lineblock"></li>
+                            <li class="flag" title="檢舉"><span class="glyphicon-flag glyphicon"></span></li>
+                            <li class="edit" title="編輯"><span class="glyphicon-pencil glyphicon"></span></li>
+                        </ul>
+                    </div>
+                    <div class="message-manage"> 
+                        <ul class="manage-group inline-group">
+                            <li>
+                                <span class="manage-ip">{{IP}}</span>
+                            </li>
+                            <li><a class="btn btn-mini">尋找 <span class="glyphicon-magnet glyphicon"></span></a></li>
+                            <li><a class="btn btn-mini">過濾 <span class="glyphicon-filter glyphicon"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="message">
+                        <div class="message-head">  
+                            <ul class="infoCon">
+                                <li class="id"><span>{{ID}}</span></li>
+                                {{#if NAME}}
+                                <li class="name"><span>{{NAME}}</span></li>
+                                {{/if}}
+                                <li class="posttime">{{POSTTIME}}</li>
+                            </ul>                      
+                        </div>
+                        <div class="message-body">                        
+                            {{#if imgSize}}
+                            <div class="attachCon">
+                                <div class="attach">
+                                    <a class="attach-link" href="#"><img alt="" src="http://placehold.it/{{imgSize}}/0eafff/ffffff.png" /></a>
+                                    <div class="attach-control">                                    
+                                    </div>
+                                    <div class="attach-info">                                    
+                                        <span class="type">{{imgTYPE}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
+                            <p class="content">
+                                {{{CONTENT}}}
+                            </p>
+                        </div>
+                        <div class="message-footer">
+                            <div class="rating"></div>
+                            <ul class="infoCon">
+                                <li class="postnumber">{{POSTNUMBER}}</li>
+                            </ul>     
+                        </div>
+                    </div>            
+                </div>
+                {{/each}}
+            </div>
+        </script>  
     </body>
 </html>
