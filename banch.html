@@ -17,6 +17,7 @@
         <script src="js/vendor/jquery-1.9.1.js"></script>
         <script src="js/libs/less-1.6.0.min.js"></script>
         <script src="js/vendor/handlebars-1.0.0-rc.4.js"></script>
+        <script src="css/bootstrap-3.0.0/js/dropdown.js"></script>
         <script id="handler" src="js/handler-reader.js"></script>
 
         <script src="js/bench-javascript.js"></script>
@@ -63,6 +64,19 @@
                 <li>
                     <a>ヘルプ</a>
                 </li>
+                <li>
+                    <div class="dropdown" style="position:relative;">
+                        <a class="btn btn-mini" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-wrench"></span>
+                        </a>
+                        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+                            <li><a>mykomica</a></li>
+                            <li><a>komica.cc</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a>setting</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="header">
@@ -108,8 +122,6 @@
                         <input type="text" id="input-name" placeholder="無名">
                     </div>
 
-                    <!-- 附件列 -->            
-
                     <!-- 控制列 -->            
                     <div class="action-group" id="post-action">
                         <ul class="inline-group pull-left">
@@ -137,7 +149,15 @@
                             <li>
                                 <a class="btn">取消</a>
                             </li>
-                        </ul>
+                        </ul>                        
+                    </div>
+                    <!-- 附加檔案 -->
+                    <div class="attach">
+                        <div class="attach-preview"><ul>
+                            <li><img alt="" src="http://placehold.it/450x50/cccccc/ffffff.png" /></li>
+                            <li></li>
+                            <li></li>
+                        </ul></div>
                     </div>
                 </div>
             </div>
@@ -164,36 +184,8 @@
             <div class="imgCon">
                 <a><img alt="" src="http://placehold.it/120x50/cccccc/ffffff.png" /></a>
             </div>
-            <div class="msgCon">
-                <!-- <div class="msg msg-main">
-                    第5艦隊に所属する軽巡1隻が、かなり高い練度(レベル)において、さらなる改装(改造)が可能になりました!　( ノﾟДﾟ)ﾖｯ!
-                    ※同艦の追加ボイスは、今後実装を予定しています。
-                    メンテナンスの完了後は接続状態が大変混雑する場合がございます。
-                    その場合は、少しだけ時間をおいたご接続を、どうぞよろしくお願い致します。
-                    画面や表示等に乱れがある場合
-                </div>
-                <div class="msg">
-                    .menu-bar>.control-group.inline-group>li>.btn.btn-menu>span.glyphicon.glyphicon-trash
-                </div>
-                <div class="msg">
-                    
-                </div>
-                <div class="msg">
-                    .menu-bar>.control-group.menu-bar>.control-group.menu-b
-                </div>                                
-                <div class="msg">
-                    .menu-bar>.control-group.inline-group>li>.btn.btn-menu>span.glyphicon.glyphicon-trash
-            ul.control-group.inline-group>li>.check>span.glyphicon.glyphicon-stop
-            ul.info-group.inline-group>li.id{eA1PaEss}+li.name{東方廚}+li.title{今天我生日喔}
-            ul.control-group.inline-group>(li>.replycount)+(li>.reply{回應})
-                </div>
-                <div class="msg">
-                    .menu-bar>.control-groeA1PaEss}+li.name{東方廚}+li.title{今天我生日喔}
-            ul.control-group.inline-group>(li>.replycount)+(li>.reply{回應})
-                </div>
-                <div class="msg">
-
-                </div> -->
+            <div class="msgCon">     
+                <!-- handlebars -->
             </div>
         </div>
         
@@ -203,7 +195,8 @@
             <div class="pull-left"><a>Komica</a> related FUtAba Board. ＼(^o^)／</div>
             <div class="pull-right">Powered by <a>mykomica.org</a></div>
         </div>
-        
+
+
         <script id="template" type="text/x-handlebars-template">
             <div class="messages">                    
                 {{#each comments}}

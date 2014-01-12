@@ -27,6 +27,9 @@
 
     $(document).ready( function() {
         
+        // bootstrpa dropdown active
+        $('.dropdown-toggle').dropdown()
+
         // Message 勾選 切換 .selected 狀態
         $(".message-control, .article-control").click( function(){
             $(this).find('.check').children('span').toggleClass('glyphicon-stop glyphicon-check');
@@ -149,6 +152,8 @@
             }
         });
     })    
+
+
 
     // Content Editable
     $(document).on('change keydown keypress input', 'div[data-placeholder]', function() {

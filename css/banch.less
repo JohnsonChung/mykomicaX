@@ -7,15 +7,16 @@
 // mykomicaX
 @import "utility.less";
 @import "variable.less";
+@import "mixin.less";
 @import "swatches.less";
 @import "color.less";
 @import "article.less";
 @import "forms.less";
 @import "form-post.less";
 @import "buttons.less";
-@import "menubar.less";
 @import "progress-bars.less";
 @import "menubar.less";
+@import "dropdowns.less";
 
 
 // variable
@@ -98,7 +99,7 @@
 	.clearfix;
 }
 .action-group {		
-
+	margin-bottom: 5px;
 	width: 100%;
 	.clearfix;
 
@@ -107,8 +108,7 @@
 	}
 }
 .headline {
-	border-top: 1px solid @fontColor;	
-	margin-bottom: 5px;	
+	border-top: 1px solid @fontColor;
 	.clearfix;
 
 	.titleCon {
