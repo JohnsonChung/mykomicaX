@@ -98,7 +98,7 @@ input {
 	.transition-property( top );
 	
 	// 進場動畫 浮動
-	&.active {		
+	&.fluid {		
 		position: fixed;
 		top: 32px; right: 0px;
 		display: table;		
@@ -112,21 +112,17 @@ input {
 			background-color: @white;	
 			.box-shadow(~"0 5px 35px rgba(0,0,0,0.10)");
 
-			input, #form-head  {
+			input, #form-head {
 				display: inline-block;
 			}		
 		}
 	}
-	// 配合js 往下捲動後會靠右，可以邊看文邊回應。
-	&.fluid {
-		.post-form {
-			margin-right: 10px;
-		}
-	}	
 	// 收折成一個小小的發文框
 	&.close {
 		.post-form {
-			input, #form-head  {
+			input, 
+			#form-head, 
+			#attach {
 				display: none;
 			}			
 		}
@@ -175,7 +171,6 @@ input {
 		}
 		input#input-title {
 			.formWidth(1.5, 3px);
-			margin-right: 5px;
 		}
 	}	
 	#post-action {

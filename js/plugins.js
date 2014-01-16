@@ -84,7 +84,7 @@
 
     // image 
     $(document).click( function() { 
-        // 快取 .image-horizontal .image-vertical .image
+        // 快取
         var $imgH = $('.image-horizontal');
         var $imgV = $('.image-vertical');
         var $img = $(".img1, .img2, .img3, .img4");
@@ -104,55 +104,59 @@
         });
     });
 
-    // _form_post.html 捲動開關
-    function scrollStartTrigger() {
-        positionTop = $(document).scrollTop();
-        var power = false;
-        if ( positionTop > 45 && power === false) {
-            $('.fluid-post-form').addClass('active');
-            power = true;
-        } else {
-            $('.fluid-post-form').removeClass('active');
-            power = false;
-        }
-    };
-    $(window).scroll( function(){
-        scrollStartTrigger();
-    });
+    // for banch.html
     $(document).ready( function(){
-        var menubar = $('.menu-bar');
-        var fluidCon = $('.fluid-post-form');
-        var 
+        var replyModTrigger = false;
+        var $menubar = $('.menu-bar');
+        var $fluidCon = $('.fluid-post-form');
+
+        $menubar.hide();
+
+        // a Trigger of Toggle, toggle the Boolean between true and false.
+        // ps: any other way do it better??
+        var toggleTrigger = function() {  
+            if( replyModTrigger === false ) {
+                replyModTrigger = true;
+                $menubar.toggle();
+                $fluidCon.removeClass('close');
+            } else 
+            if ( replyModTrigger === true ) {
+                replyModTrigger = false;
+                $menubar.toggle();
+                $fluidCon.addClass('close').removeClass('fluid');
+            }
+        }                                          
+
+        $('.btn-cancel').click( function(){            
+            toggleTrigger();
+        });
+
+        $(".textarea").focus( function() {            
+            if ( replyModTrigger === false ) {
+                toggleTrigger();
+            }
+        });
+
+        // _form_post.html 捲動開關
+        function scrollStartTrigger() {
+            positionTop = $(document).scrollTop();            
+            if ( positionTop > 45 && replyModTrigger === true) {
+                $fluidCon.addClass('fluid');                
+            } else {
+                $fluidCon.removeClass('fluid');
+            }
+        };
+
+        $(window).scroll( function(){
+            scrollStartTrigger();
+        });
+
         // 隱藏ID開關
         $('#btn-toggle-id').click( function(){
             $('#btn-toggle-id').css('display', 'none');
             $('#user-id').toggleClass('hidden');
         });
-        // .menu-bar 收折 textarea 漂浮 @@@ <---未完成
-        // NOTE  --->> 發文模式[active] --> 判斷SCROLL[fluid] 
-        //       --->> 發文模式[unactive] --> 不判斷SCROLL
-        //       --->> Focus --> 開啟發文模式 --> Blur --> 沒有fluid 關閉發文模式
-        //                                            --> 有fluid 維持原狀
-        $('.btn-submit').click( function(){
-            if( $(menubar).hasClass('close') ) {
-                $('.fluid-post-form').toggleClass('active close');
-                $(menubar).removeClass('close');
-            } else {
-                $('.fluid-post-form').toggleClass('active close');
-                $(menubar).addClass('close');
-            }
-        });
-        $(".textarea").focus( function() {
-            if( $(menubar).hasClass('close') ) {
-                $(menubar).removeClass('close');
-            }
-        });
-        $(".textarea").blur( function() {
-            if( $(menubar).hasClass('close') ) {
-                $(menubar).addClass('close');
-            }
-        });
-    })    
+    });
 
 
 
