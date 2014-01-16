@@ -16,9 +16,12 @@
 // basic Menu-bar
 // ================================// menu-bar
 .menu-bar {	
+	position: relative;
 	width: 100%;
 	background-color: @messageColor;
-	height: 34px;
+	min-height: 34px;
+	overflow: hidden;
+	.box-shadow-default;
 	.user-select-none;
 	.clearfix;
 	.transition(~"0.25s ease-out");

@@ -85,14 +85,14 @@ input {
 // ================================
 .menu-bar.menu-replymode {	
 	position: fixed;
-	z-index: 3;
+	z-index: @zindex-menubar;
 	width: 100%;
 	right: 0; top: 0; left: 0;
 }
 .fluid-post-form {
 	position: relative;
 	display: table;
-	z-index: 3;
+	z-index: @zindex-popover;
 
 	.transition(~"0.2s ease-out");
 	.transition-property( top );

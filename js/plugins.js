@@ -28,7 +28,7 @@
     $(document).ready( function() {
         
         // bootstrpa dropdown active
-        $('.dropdown-toggle').dropdown()
+        $('.dropdown-toggle').dropdown();
 
         // Message 勾選 切換 .selected 狀態
         $(".message-control, .article-control").click( function(){
@@ -121,7 +121,8 @@
     });
     $(document).ready( function(){
         var menubar = $('.menu-bar');
-
+        var fluidCon = $('.fluid-post-form');
+        var 
         // 隱藏ID開關
         $('#btn-toggle-id').click( function(){
             $('#btn-toggle-id').css('display', 'none');

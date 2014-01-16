@@ -48,8 +48,8 @@ div.messageCon {
 	display: table;
 	position: relative;
 	margin: 6px 0;
-	.transition(~'0.1s linear');
-	.transition-property( margin, border, background-color);
+	// .transition(~'0.1s linear');
+	// .transition-property();
 	
 	// 附加的 class 描述這個 messageCon 的狀態 應該可以分類到獨立的樹狀方便處理
 	&.highlight {
@@ -68,7 +68,7 @@ div.messageCon {
 	&.selected {
 		border: 2px solid @blue;
 		background-color: @blue;
-		margin: 3px 0;
+		margin: 4px 0;
 
 		.message-control {
 			width: 40px;
@@ -134,8 +134,8 @@ div.messageCon {
 		color: @messageColor;
 
 		.user-select-none;
-		.transition(~'0.1s linear');
-		.transition-property( margin, border, background-color);
+		// .transition(~'0.1s linear');
+		// .transition-property();
 
 		&:hover {
 			.check {
