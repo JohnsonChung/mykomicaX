@@ -87,18 +87,18 @@ div.messageCon {
 			left: -10px;
 			content: '';
 			height: 100%;
-			border-left: 5px solid @blue;
+			border-left: 5px solid @linkColor;
 		}
 	}
 	// 選取後的本文樣式, 籃框, 管理按鈕
 	&.selected {
-		outline: 2px solid @blue;
-		background-color: @blue;
+		outline: 2px solid @linkColor;
+		background-color: @linkColor;
 
 		.message-control {
 			width: 40px;
-			outline: 2px solid @blue;
-			background-color: @blue;
+			outline: 2px solid @linkColor;
+			background-color: @linkColor;
 			
 			li {	
 				visibility: visible !important;
@@ -117,7 +117,7 @@ div.messageCon {
 			}				
 		}
 		.message-manage {
-			display: none;
+			display: block;
 		}
 	}
 	&:hover {
@@ -127,7 +127,7 @@ div.messageCon {
 				color: @fontColor;
 			}
 			.postnumber {
-				color: fade( @blue, 70% );
+				color: fade( @linkColor, 70% );
 			}
 		}
 		.control-group {
@@ -178,6 +178,7 @@ div.messageCon {
 
 				&:hover {
 					font-size: 16px;
+					color: @linkColor;
 				}
 			}
 			li.lineblock {
@@ -247,7 +248,7 @@ div.messageCon {
 
     		&:hover {
 				text-decoration: underline;
-				color: fade( @blue, 100%) !important;				
+				color: fade( @linkColor, 100%) !important;				
     		}
 	    }
 	}
