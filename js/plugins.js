@@ -156,6 +156,18 @@
             $('#btn-toggle-id').css('display', 'none');
             $('#user-id').toggleClass('hidden');
         });
+
+        var $intro = $('.board-intro');
+        var intro = $('.full-view-btn').parent().html();        
+        $('body').on('click',function() {
+            $('.full-view-btn').bind('click', function() {
+                $intro.append( intro );
+                $intro.append(" <a class='clear-btn'> clear </a> ");
+            });
+            $('.clear-btn').bind('click', function(){
+                $intro.empty().append( intro );                
+            });
+        });
     });
 
 
