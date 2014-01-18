@@ -227,7 +227,10 @@
                                 <li class="name"><span>{{NAME}}</span></li>
                                 {{/if}}
                                 <li class="posttime">{{POSTTIME}}</li>
-                            </ul>                      
+                            </ul>  
+                            <ul class="control-group inline-group pull-right">
+                                <li><a class="btn-push btn-mini btn" title="推文">推</a></li>
+                            </ul>                         
                         </div>
                         <div class="message-body">                        
                             {{#if imgSize}}
@@ -247,9 +250,12 @@
                             </p>
                         </div>
                         <div class="message-footer">
-                            <div class="rating"></div>
-                            <ul class="infoCon">
+                            <ul class="infoCon pull-right">
                                 <li class="postnumber">{{POSTNUMBER}}</li>
+                            </ul>
+                            <ul class="control-group inline-group pull-right">
+                                <li><a class="flag" title="檢舉"><span class="glyphicon-flag glyphicon"></span></a></li>
+                                <li><a class="flag" title="檢舉"><span class="glyphicon-flag glyphicon"></span></a></li>
                             </ul>     
                         </div>
                     </div>            
@@ -257,5 +263,7 @@
                 {{/each}}
             </div>
         </script>  
+
+ 
     </body>
 </html>

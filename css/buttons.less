@@ -109,7 +109,7 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 .btn-pseudo-states(@color, @background, @border) {
-  color: @color;
+  color: @color !important;
   background-color: @background;
   border-color: @border;
 
@@ -151,9 +151,9 @@
   padding: @padding-base-vertical @padding-base-horizontal;
   margin-bottom: 0; // For input.btn
 
-  color: @gray-light;
+  color: @gray-light !important;
   font-size: @font-size-base;
-  font-weight: 500;
+  font-weight: 500;  
   line-height: @line-height-base;
   text-align: center;
   vertical-align: middle;
