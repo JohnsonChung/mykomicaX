@@ -23,7 +23,30 @@
 
 // Place any jQuery/helper plugins in here.
 !function ($){
+    // for background-template.html
+    $(document).ready( function() {
+        $('.dropdown-toggle').dropdown();
 
+        $("<style type='text/css'> .floatit { position: fixed !important;} </style>").appendTo("head");
 
-});
+        $('.musume-float').bind( 'click',  function() {
+            $('.kanban-musume').toggleClass('floatit');
+        });
+
+        var $msg = $('.messages');
+        $('.plusHeight').click( function(){
+            var h = $msg.height() + 100 ; 
+            $msg.animate({
+                height: h
+            }, 'fast');
+        });
+        $('.cutHeight').click( function(){
+            var h = $msg.height() - 100;
+            $msg.animate({
+                height: h
+            }, 'fast');
+        });
+
+    });
+}(window.jQuery);
 

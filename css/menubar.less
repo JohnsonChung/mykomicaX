@@ -52,6 +52,35 @@
 }
 
 
+
+//
+// Navbar alignment options
+// --------------------------------------------------
+
+// Static navbar
+.menu-bar-static-top {
+  border-radius: 0;
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.menu-bar-fixed-top,
+.menu-bar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: @zindex-navbar-fixed;
+  border-radius: 0;
+}
+.menu-bar-fixed-top {
+  top: 0;
+}
+.menu-bar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0; // override .navbar defaults
+}
+
+
+
 // Alternate menu-bar
 // --------------------------------------------------
 

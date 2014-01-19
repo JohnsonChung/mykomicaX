@@ -1,0 +1,109 @@
+// IMPORT
+@import "lesshat.less";
+
+// bootstrap
+@import "bootstrap-glyphicons.less";
+
+// mykomicaX
+// -- important
+@import "utility.less";
+@import "variable.less";
+@import "mixin.less";
+@import "swatches.less";
+@import "color.less";
+
+// -- normal
+// @import "forms.less";
+@import "buttons.less";
+// @import "dropdowns.less";
+// @import "progress-bars.less";
+@import "menubar.less";
+// @import "article.less";
+
+// -- last
+
+// utility
+
+
+// background template
+// ================================
+
+html, body {	
+	height: 100%;
+}
+body {
+	min-height: 100%;
+}
+#body.background-body {
+	position: relative;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0 0 150px 0;
+	width: 100%;
+	background-image: url('../img/background/web.png');
+
+	> .background-header {
+		position: absolute;
+		left: 0; top: 0;
+		height: 200px;
+		width: 100%;
+		background-image: url('../img/background/body-header.png');
+		background-repeat: no-repeat;
+	}
+	> .background-footer {
+		position: absolute;
+		left: 0; bottom: 0;
+		height: 200px;
+		width: 100%;
+		background-image: url('../img/background/body-header.png');
+		background-repeat: no-repeat;
+		.transform(~"rotate(180deg)");
+	}
+	> .kanban-musume {
+		position: absolute;
+		right: 0; bottom: 0;
+		height: 450px;
+		width: 400px;
+		background-image: url('../img/background/kanabanMusume.png');
+		background-repeat: no-repeat;
+	}
+}
+.background-messages {
+	position: absolute;
+	left: 0; top: 0; right: 0; bottom: 0;
+	margin: 0 auto;
+	min-height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	.border(#EED000);
+
+	> .background-header {
+		position: absolute;
+		left: 0; top: 0;
+		height: 50px;
+		width: 100%;
+		background-image: url('../img/background/messages-header.png');
+		background-repeat: repeat-x;
+	}
+	> .background-footer {
+		position: absolute;
+		left: 0; bottom: 0;
+		height: 100px;
+		width: 100%;
+		background-image: url('../img/background/white-blackLine.png');
+		background-repeat: repeat-x;
+	}
+}
+.messages {
+	position: relative;
+	padding: 35px;
+	margin: 10px auto;	
+	height: 1280px;
+	width: 960px;
+}
+.article {
+	// fix body margin collapse
+	display: inline-block; 
+	width: 100%;
+	margin: 0 auto;
+}
