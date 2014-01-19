@@ -30,21 +30,24 @@
 
 html, body {	
 	height: 100%;
+	width: 100%;
 }
 body {
 	min-height: 100%;
+	min-width: 100%;
+	background-image: url('../img/background/web.png');
 }
 #body.background-body {
 	position: relative;
 	min-height: 100%;
+	min-width: 100%;
 	margin: 0 auto;
 	padding: 0 0 150px 0;
-	width: 100%;
-	background-image: url('../img/background/web.png');
 
 	> .background-header {
 		position: absolute;
 		left: 0; top: 0;
+		z-index: -1;
 		height: 200px;
 		width: 100%;
 		background-image: url('../img/background/body-header.png');
@@ -53,6 +56,7 @@ body {
 	> .background-footer {
 		position: absolute;
 		left: 0; bottom: 0;
+		z-index: -1;
 		height: 200px;
 		width: 100%;
 		background-image: url('../img/background/body-header.png');
@@ -61,7 +65,8 @@ body {
 	}
 	> .kanban-musume {
 		position: absolute;
-		right: 0; bottom: 0;
+		right: 0; bottom: 0px;
+		z-index: -1;
 		height: 450px;
 		width: 400px;
 		background-image: url('../img/background/kanabanMusume.png');
@@ -70,8 +75,8 @@ body {
 }
 .background-messages {
 	position: absolute;
-	left: 0; top: 0; right: 0; bottom: 0;
-	margin: 0 auto;
+	left: 0; top: 0;
+	z-index: -1;
 	min-height: 100%;
 	width: 100%;
 	background-color: rgba(0,0,0,0.5);
@@ -94,12 +99,15 @@ body {
 		background-repeat: repeat-x;
 	}
 }
+// template
 .messages {
 	position: relative;
 	padding: 35px;
 	margin: 10px auto;	
 	height: 1280px;
 	width: 960px;
+	color: #fff;
+	line-height: 40px;
 }
 .article {
 	// fix body margin collapse
